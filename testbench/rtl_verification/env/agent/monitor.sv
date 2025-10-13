@@ -29,7 +29,7 @@ class monitor extends uvm_monitor;
     endfunction
     
     // Run phase - monitor DUT activity
-    virtual task run_phase(uvm_phase phase);
+    task run_phase(uvm_phase phase);
         transaction tx;
         
         @(negedge vif.reset);
