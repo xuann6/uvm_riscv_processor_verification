@@ -1,0 +1,406 @@
+# vsim -c -lib ./LibTop tb -t ps -do "./run.do" -sv_seed 10 
+# Start time: 22:16:45 on Sep 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 2021.2_2 linux Jun 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb(fast)
+# Loading work.RISCVPipelined(fast)
+# Loading work.PC(fast)
+# Loading work.inst_memory(fast)
+# Loading work.IFID(fast)
+# Loading work.registerFile(fast)
+# Loading work.ControlUnit(fast)
+# Loading work.IDEX(fast)
+# Loading work.ALU(fast)
+# Loading work.EXMEM(fast)
+# Loading work.data_memory(fast)
+# Loading work.MEMWB(fast)
+# Loading work.HazardUnit(fast)
+# do ./run.do
+# 1
+# configure wave -namecolwidth 250
+# configure wave not supported in batch mode
+# configure wave -valuecolwidth 100
+# configure wave not supported in batch mode
+# configure wave -justifyvalue left
+# configure wave not supported in batch mode
+# configure wave -signalnamewidth 1
+# configure wave not supported in batch mode
+# configure wave -snapdistance 10
+# configure wave not supported in batch mode
+# configure wave -datasetprefix 0
+# configure wave not supported in batch mode
+# configure wave -rowmargin 4
+# configure wave not supported in batch mode
+# configure wave -childrowmargin 2
+# configure wave not supported in batch mode
+# configure wave -gridoffset 0
+# configure wave not supported in batch mode
+# configure wave -gridperiod 1
+# configure wave not supported in batch mode
+# configure wave -griddelta 40
+# configure wave not supported in batch mode
+# configure wave -timeline 0
+# configure wave not supported in batch mode
+# configure wave -timelineunits ns
+# configure wave not supported in batch mode
+# 
+# Add waves
+# add wave -position insertpoint sim:/tb_top/*
+# 
+# Run simulation
+# run -all
+# Starting bubble sort test
+# Array size: 10
+# Unsorted array: ['{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}]
+# Initialized mem[64] = 10 (byte addr 0x00000100, word addr 0x00000040)
+# Initialized mem[65] = 9 (byte addr 0x00000104, word addr 0x00000041)
+# Initialized mem[66] = 8 (byte addr 0x00000108, word addr 0x00000042)
+# Initialized mem[67] = 7 (byte addr 0x0000010c, word addr 0x00000043)
+# Initialized mem[68] = 6 (byte addr 0x00000110, word addr 0x00000044)
+# Initialized mem[69] = 5 (byte addr 0x00000114, word addr 0x00000045)
+# Initialized mem[70] = 4 (byte addr 0x00000118, word addr 0x00000046)
+# Initialized mem[71] = 3 (byte addr 0x0000011c, word addr 0x00000047)
+# Initialized mem[72] = 2 (byte addr 0x00000120, word addr 0x00000048)
+# Initialized mem[73] = 1 (byte addr 0x00000124, word addr 0x00000049)
+# Initialized done flag at byte addr 0x00000200 (word addr 0x00000080) = 0
+# Cycle 10: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 20: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 30: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 40: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 50: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 60: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 70: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 80: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 90: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 100: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 110: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 120: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 130: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 140: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 150: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 160: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 170: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 180: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 190: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 200: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 210: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 220: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 230: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 240: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 250: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 260: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 270: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 280: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 290: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 300: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 310: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 320: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 330: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 340: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 350: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 360: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 370: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 380: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 390: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 400: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 410: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 420: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 430: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 440: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 450: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 460: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 470: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 480: PC = 0x00000020, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 490: PC = 0x00000018, Instruction = 0x0000006f
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# Cycle 500: PC = 0x0000001c, Instruction = 0x00000013
+#   x1 (base) = 0x00000100, x3 (i) = 4294967295, x5 (j) = 0
+#   x6 (curr) = 10, x7 (next) = 9
+#   Array: [9, 10, 8, 7, 6]
+#   ALUResult_E = 0x00000000, ALUResult_M = 0x00000000, memWrite_M = 0
+#   writeData_M = 0x00000000, addr = 0x0000
+# TEST FAILED: Timeout after 500 cycles
+# Verifying sorted array:
+# mem[0x00000100] = 9 (Word addr: 0x00000040) (Expected: 1)
+# ERROR: Mismatch at index 0
+# mem[0x00000104] = 10 (Word addr: 0x00000041) (Expected: 2)
+# ERROR: Mismatch at index 1
+# mem[0x00000108] = 8 (Word addr: 0x00000042) (Expected: 3)
+# ERROR: Mismatch at index 2
+# mem[0x0000010c] = 7 (Word addr: 0x00000043) (Expected: 4)
+# ERROR: Mismatch at index 3
+# mem[0x00000110] = 6 (Word addr: 0x00000044) (Expected: 5)
+# ERROR: Mismatch at index 4
+# mem[0x00000114] = 5 (Word addr: 0x00000045) (Expected: 6)
+# ERROR: Mismatch at index 5
+# mem[0x00000118] = 4 (Word addr: 0x00000046) (Expected: 7)
+# ERROR: Mismatch at index 6
+# mem[0x0000011c] = 3 (Word addr: 0x00000047) (Expected: 8)
+# ERROR: Mismatch at index 7
+# mem[0x00000120] = 2 (Word addr: 0x00000048) (Expected: 9)
+# ERROR: Mismatch at index 8
+# mem[0x00000124] = 1 (Word addr: 0x00000049) (Expected: 10)
+# ERROR: Mismatch at index 9
+# TEST FAILED: 10 errors found in sorted array
+# ** Note: $finish    : ./tb_bubble.sv(57)
+#    Time: 5115 ns  Iteration: 0  Instance: /tb
+# End time: 22:16:45 on Sep 27,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

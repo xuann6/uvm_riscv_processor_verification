@@ -1,0 +1,344 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11f vlog 2021.2_2 2021.06, Jun 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/filespace/c/chao32/uvm/testbench/rtl_sim/bubbleSortTest
+T_opt
+!s110 1759029405
+VP@TenMhcMl`En_J5f2I]Z0
+04 2 4 work tb fast 0
+=1-000ae431a4f1-68d8a89d-37b6e-116a06
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work ./LibTop
+Z1 tCvgOpt 0
+n@_opt
+OE;O;2021.2_2;73
+vALU
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z3 !s110 1759029404
+!i10b 1
+!s100 HoX0;i7z]RHk:9<m3UK6j2
+Ien8iEII6eI^o@j<PO5gik0
+S1
+R0
+w1748005292
+8../../../processor/32-bits_alu.sv
+F../../../processor/32-bits_alu.sv
+!i122 0
+L0 17 26
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OE;L;2021.2_2;73
+r1
+!s85 0
+31
+Z6 !s108 1759029404.000000
+Z7 !s107 ../../../processor/MEM-WB.sv|../../../processor/EXE-MEM.sv|../../../processor/ID-EXE.sv|../../../processor/IF-ID.sv|../../../processor/reg_file.sv|../../../processor/program_counter.sv|../../../processor/inst_mem.sv|../../../processor/data_mem.sv|../../../processor/hazard_unit.sv|../../../processor/control_unit.sv|../../../processor/32-bits_alu.sv|./tb_bubble.sv|../../../processor/top.sv|
+Z8 !s90 -suppress|vlog-2583|-sv|+acc|-nologo|-quiet|-work|work|../../../processor/top.sv|./tb_bubble.sv|
+!i113 0
+Z9 o-suppress vlog-2583 -nologo -quiet -sv +acc -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@a@l@u
+vControlUnit
+R2
+R3
+!i10b 1
+!s100 Qe>R[P1;BmGK:PaU^=<203
+IMi=^oE`b<V0=QzEdHQ]CP3
+S1
+R0
+w1748007826
+8../../../processor/control_unit.sv
+F../../../processor/control_unit.sv
+!i122 0
+L0 3 178
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@control@unit
+vdata_memory
+R2
+R3
+!i10b 1
+!s100 RL@U63YbbVCkiFj:?^2Vn2
+I4a:nLd]OFTYIEYkFimeMz2
+S1
+R0
+w1750239608
+8../../../processor/data_mem.sv
+F../../../processor/data_mem.sv
+!i122 0
+L0 3 30
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vEXMEM
+R2
+R3
+!i10b 1
+!s100 J9X4gmZ_]z9]oD2G>LhS;3
+I;j<WQU3@Uien<j63Kkcnj1
+S1
+R0
+Z10 w1744173807
+8../../../processor/EXE-MEM.sv
+F../../../processor/EXE-MEM.sv
+!i122 0
+L0 3 49
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@e@x@m@e@m
+vHazardUnit
+R2
+R3
+!i10b 1
+!s100 6U<8A<39_>LQ^?Fa?c9;f2
+IoROi>@hnc[PHnngA`6ab>1
+S1
+R0
+w1748007658
+8../../../processor/hazard_unit.sv
+F../../../processor/hazard_unit.sv
+!i122 0
+L0 3 36
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@hazard@unit
+vIDEX
+R2
+R3
+!i10b 1
+!s100 4g7I_4j?CaAo9Cm[QEEK51
+Ih_jY<3XUHbH][<fWcVeX]2
+S1
+R0
+w1744173809
+8../../../processor/ID-EXE.sv
+F../../../processor/ID-EXE.sv
+!i122 0
+L0 3 87
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@i@d@e@x
+vIFID
+R2
+R3
+!i10b 1
+!s100 `R8e4gXLMA8@8=fJB6aFf2
+IK@fF<?on2[i0^m_[1_o]J0
+S1
+R0
+R10
+8../../../processor/IF-ID.sv
+F../../../processor/IF-ID.sv
+!i122 0
+L0 3 27
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@i@f@i@d
+vinst_memory
+R2
+R3
+!i10b 1
+!s100 `90S<]nYjzCIW:b9e>z_92
+IMbIjo5::[?X[06S@N=hH80
+S1
+R0
+w1757892108
+8../../../processor/inst_mem.sv
+F../../../processor/inst_mem.sv
+!i122 0
+L0 3 39
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vMEMWB
+R2
+R3
+!i10b 1
+!s100 GA1<LK``O9KlXjJAfWFn42
+ISSaYjPn59c[EPXO43P;`Z2
+S1
+R0
+R10
+8../../../processor/MEM-WB.sv
+F../../../processor/MEM-WB.sv
+!i122 0
+L0 3 45
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@m@e@m@w@b
+vPC
+R2
+R3
+!i10b 1
+!s100 LhSn;hXKjd2eTIZ@LSc=C1
+IOPRK4YFk=U`bVURMV1T5g2
+S1
+R0
+w1748060138
+8../../../processor/program_counter.sv
+F../../../processor/program_counter.sv
+!i122 0
+L0 3 17
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@p@c
+vregisterFile
+R2
+R3
+!i10b 1
+!s100 O;VGDkLm?dRWTN3n5VXXY0
+ICU:`OfhHK<bgejIAX<CfW1
+S1
+R0
+w1750239262
+8../../../processor/reg_file.sv
+F../../../processor/reg_file.sv
+!i122 0
+L0 3 43
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+nregister@file
+vRISCVPipelined
+R2
+R3
+!i10b 1
+!s100 [>S=J;WkQGWJdGUA[W[E62
+I9_F3d68HAhLOMk8N;FbY;0
+S1
+R0
+w1748060148
+8../../../processor/top.sv
+F../../../processor/top.sv
+!i122 0
+L0 15 343
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+n@r@i@s@c@v@pipelined
+vtb
+R2
+R3
+!i10b 1
+!s100 <PR5fJC3MFFi2[BdbhIZ<1
+IcfhPW]I06D8]hj4HG5]0z2
+S1
+R0
+w1759029087
+8./tb_bubble.sv
+F./tb_bubble.sv
+!i122 0
+L0 3 171
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1

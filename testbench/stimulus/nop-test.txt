@@ -1,0 +1,3 @@
+# NOP Test
+# ADDI x0, x0, 0 (NOP - does nothing)
+00000000000000000000000000010011

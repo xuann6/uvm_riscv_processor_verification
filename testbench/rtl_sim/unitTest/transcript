@@ -1,0 +1,2961 @@
+# vsim -c -lib ./LibTop tb -t ps -do "./run.do" -sv_seed 10 
+# Start time: 22:20:56 on Sep 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 2021.2_2 linux Jun 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb(fast)
+# Loading work.RISCVPipelined(fast)
+# Loading work.PC(fast)
+# Loading work.inst_memory(fast)
+# Loading work.IFID(fast)
+# Loading work.registerFile(fast)
+# Loading work.ControlUnit(fast)
+# Loading work.IDEX(fast)
+# Loading work.ALU(fast)
+# Loading work.EXMEM(fast)
+# Loading work.data_memory(fast)
+# Loading work.MEMWB(fast)
+# Loading work.HazardUnit(fast)
+# do ./run.do
+# 1
+# configure wave -namecolwidth 250
+# configure wave not supported in batch mode
+# configure wave -valuecolwidth 100
+# configure wave not supported in batch mode
+# configure wave -justifyvalue left
+# configure wave not supported in batch mode
+# configure wave -signalnamewidth 1
+# configure wave not supported in batch mode
+# configure wave -snapdistance 10
+# configure wave not supported in batch mode
+# configure wave -datasetprefix 0
+# configure wave not supported in batch mode
+# configure wave -rowmargin 4
+# configure wave not supported in batch mode
+# configure wave -childrowmargin 2
+# configure wave not supported in batch mode
+# configure wave -gridoffset 0
+# configure wave not supported in batch mode
+# configure wave -gridperiod 1
+# configure wave not supported in batch mode
+# configure wave -griddelta 40
+# configure wave not supported in batch mode
+# configure wave -timeline 0
+# configure wave not supported in batch mode
+# configure wave -timelineunits ns
+# configure wave not supported in batch mode
+# 
+# Add waves
+# add wave -position insertpoint sim:/tb_top/*
+# 
+# Run simulation
+# run -all
+# 
+# ===========================================================
+#       STARTING RISC-V PIPELINED PROCESSOR TESTS             
+# ===========================================================
+# 
+# ----- Testing R-Type Instructions -----
+# 
+# === Testing ADD (x5 = x1 + x2 = 5 + 10 = 15) ===
+# 
+# Cycle: 1
+# Fetch:      PC = 0x00000000, Instr = 0x002082b3
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 2
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x002082b3
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000002
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 3
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 4
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 5
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 5
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: ADD (x5 = x1 + x2 = 5 + 10 = 15)
+#   x5 = 0x0000000f
+# 
+# === Testing SUB (x6 = x2 - x1 = 10 - 5 = 5) ===
+# 
+# Cycle: 6
+# Fetch:      PC = 0x00000000, Instr = 0x40110333
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 7
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x40110333
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000401
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 8
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000a, srcB: 0x00000005
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xa, srcB: 0x5, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 9
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000005
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 10
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000005, RegWrite = 1, Rd = 6
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SUB (x6 = x2 - x1 = 10 - 5 = 5)
+#   x6 = 0x00000005
+# 
+# === Testing AND (x7 = x2 & x3 = 0xA & 0xFFFFFFFF = 0xA) ===
+# 
+# Cycle: 11
+# Fetch:      PC = 0x00000000, Instr = 0x003173b3
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 12
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x003173b3
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000003
+# ALUControl: 0x00000007
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x7, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 13
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000a, srcB: 0xffffffff
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xa, srcB: 0xffffffff, ALUControl: 0x7
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000007
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 111
+# 
+# Cycle: 14
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000a, WriteData = 0xffffffff
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 15
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 7
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: AND (x7 = x2 & x3 = 0xA & 0xFFFFFFFF = 0xA)
+#   x7 = 0x0000000a
+# 
+# === Testing OR (x8 = x1 | x2 = 5 | 10 = 15) ===
+# 
+# Cycle: 16
+# Fetch:      PC = 0x00000000, Instr = 0x0020e433
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 17
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x0020e433
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000002
+# ALUControl: 0x00000006
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x6, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 18
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0x6
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000006
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 110
+# 
+# Cycle: 19
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 20
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 8
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: OR (x8 = x1 | x2 = 5 | 10 = 15)
+#   x8 = 0x0000000f
+# 
+# === Testing XOR (x9 = x1 ^ x2 = 5 ^ 10 = 15) ===
+# 
+# Cycle: 21
+# Fetch:      PC = 0x00000000, Instr = 0x0020c4b3
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 22
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x0020c4b3
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000002
+# ALUControl: 0x00000004
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x4, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 23
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0x4
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000004
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 100
+# 
+# Cycle: 24
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 25
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 9
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: XOR (x9 = x1 ^ x2 = 5 ^ 10 = 15)
+#   x9 = 0x0000000f
+# 
+# === Testing SLT (x10 = (x1 < x2) ? 1 : 0 = 1) ===
+# 
+# Cycle: 26
+# Fetch:      PC = 0x00000000, Instr = 0x0020a533
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 27
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x0020a533
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000002
+# ALUControl: 0x0000000c
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xc, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 28
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000001
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0xc
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000001, ALUControl: 0x0000000c
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 010
+# 
+# Cycle: 29
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000001, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 30
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000001, RegWrite = 1, Rd = 10
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SLT (x10 = (x1 < x2) ? 1 : 0 = 1)
+#   x10 = 0x00000001
+# 
+# === Testing SLL (x11 = x1 << x4 = 5 << 3 = 40) ===
+# 
+# Cycle: 31
+# Fetch:      PC = 0x00000000, Instr = 0x004095b3
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 32
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x004095b3
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000004
+# ALUControl: 0x00000001
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x1, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 33
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000028
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000003
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x3, ALUControl: 0x1
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000028, ALUControl: 0x00000001
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 001
+# 
+# Cycle: 34
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000028, WriteData = 0x00000003
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 35
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000028, RegWrite = 1, Rd = 11
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SLL (x11 = x1 << x4 = 5 << 3 = 40)
+#   x11 = 0x00000028
+# 
+# === Testing SRL (x12 = x2 >> x4 = 10 >> 3 = 1) ===
+# 
+# Cycle: 36
+# Fetch:      PC = 0x00000000, Instr = 0x00415633
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 37
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00415633
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000004
+# ALUControl: 0x00000005
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x5, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 38
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000001
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000a, srcB: 0x00000003
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xa, srcB: 0x3, ALUControl: 0x5
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000001, ALUControl: 0x00000005
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 101
+# 
+# Cycle: 39
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000001, WriteData = 0x00000003
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 40
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000001, RegWrite = 1, Rd = 12
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SRL (x12 = x2 >> x4 = 10 >> 3 = 1)
+#   x12 = 0x00000001
+# 
+# === Testing SRA (x13 = x3 >> x4 = -1 >> 3 = -1) ===
+# 
+# Cycle: 41
+# Fetch:      PC = 0x00000000, Instr = 0x4041d6b3
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 42
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x4041d6b3
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000404
+# ALUControl: 0x0000000b
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xb, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 43
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0xffffffff
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0xffffffff, srcB: 0x00000003
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xffffffff, srcB: 0x3, ALUControl: 0xb
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0xffffffff, ALUControl: 0x0000000b
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 101
+# 
+# Cycle: 44
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0xffffffff, WriteData = 0x00000003
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 45
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0xffffffff, RegWrite = 1, Rd = 13
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SRA (x13 = x3 >> x4 = -1 >> 3 = -1)
+#   x13 = 0xffffffff
+# 
+# ----- Testing I-Type Instructions -----
+# 
+# === Testing ADDI (x14 = x1 + 20 = 5 + 20 = 25) ===
+# 
+# Cycle: 46
+# Fetch:      PC = 0x00000000, Instr = 0x01408713
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 47
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x01408713
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000014
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 48
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000019
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000014
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x14, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000019, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 49
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000019, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 50
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000019, RegWrite = 1, Rd = 14
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: ADDI (x14 = x1 + 20 = 5 + 20 = 25)
+#   x14 = 0x00000019
+# 
+# === Testing ANDI (x15 = x2 & 7 = 10 & 7 = 2) ===
+# 
+# Cycle: 51
+# Fetch:      PC = 0x00000000, Instr = 0x00717793
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 52
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00717793
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000007
+# ALUControl: 0x00000007
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x7, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 53
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000002
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000a, srcB: 0x00000007
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xa, srcB: 0x7, ALUControl: 0x7
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000002, ALUControl: 0x00000007
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 111
+# 
+# Cycle: 54
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000002, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 55
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000002, RegWrite = 1, Rd = 15
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: ANDI (x15 = x2 & 7 = 10 & 7 = 2)
+#   x15 = 0x00000002
+# 
+# === Testing ORI (x16 = x1 | 10 = 5 | 10 = 15) ===
+# 
+# Cycle: 56
+# Fetch:      PC = 0x00000000, Instr = 0x00a0e813
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 57
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00a0e813
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000006
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x6, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 58
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0x6
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000006
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 110
+# 
+# Cycle: 59
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 60
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 16
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: ORI (x16 = x1 | 10 = 5 | 10 = 15)
+#   x16 = 0x0000000f
+# 
+# === Testing XORI (x17 = x1 ^ 10 = 5 ^ 10 = 15) ===
+# 
+# Cycle: 61
+# Fetch:      PC = 0x00000000, Instr = 0x00a0c893
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 62
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00a0c893
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000004
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x4, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 63
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0x4
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000004
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 100
+# 
+# Cycle: 64
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 65
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 17
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: XORI (x17 = x1 ^ 10 = 5 ^ 10 = 15)
+#   x17 = 0x0000000f
+# 
+# === Testing SLTI (x18 = (x1 < 10) ? 1 : 0 = 1) ===
+# 
+# Cycle: 66
+# Fetch:      PC = 0x00000000, Instr = 0x00a0a913
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 67
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00a0a913
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x0000000c
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xc, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 68
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000001
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0xa, ALUControl: 0xc
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000001, ALUControl: 0x0000000c
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 010
+# 
+# Cycle: 69
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000001, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 70
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000001, RegWrite = 1, Rd = 18
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SLTI (x18 = (x1 < 10) ? 1 : 0 = 1)
+#   x18 = 0x00000001
+# 
+# === Testing SLLI (x19 = x1 << 4 = 5 << 4 = 80) ===
+# 
+# Cycle: 71
+# Fetch:      PC = 0x00000000, Instr = 0x00409993
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 72
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00409993
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000004
+# ALUControl: 0x00000001
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x1, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 73
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000050
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000004
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x4, ALUControl: 0x1
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000050, ALUControl: 0x00000001
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 001
+# 
+# Cycle: 74
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000050, WriteData = 0x00000003
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 75
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000050, RegWrite = 1, Rd = 19
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SLLI (x19 = x1 << 4 = 5 << 4 = 80)
+#   x19 = 0x00000050
+# 
+# === Testing SRLI (x20 = x2 >> 2 = 10 >> 2 = 2) ===
+# 
+# Cycle: 76
+# Fetch:      PC = 0x00000000, Instr = 0x00215a13
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 77
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00215a13
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000002
+# ALUControl: 0x00000005
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x5, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 78
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000002
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000a, srcB: 0x00000002
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xa, srcB: 0x2, ALUControl: 0x5
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000002, ALUControl: 0x00000005
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 101
+# 
+# Cycle: 79
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000002, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 80
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000002, RegWrite = 1, Rd = 20
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000002, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SRLI (x20 = x2 >> 2 = 10 >> 2 = 2)
+#   x20 = 0x00000002
+# 
+# === Testing SRAI (x21 = x3 >> 4 = -1 >> 4 = -1) ===
+# 
+# Cycle: 81
+# Fetch:      PC = 0x00000000, Instr = 0x4041da93
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 82
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x4041da93
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000404
+# ALUControl: 0x0000000b
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xb, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 83
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0xffffffff
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0xffffffff, srcB: 0x00000404
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xffffffff, srcB: 0x404, ALUControl: 0xb
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0xffffffff, ALUControl: 0x0000000b
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 101
+# 
+# Cycle: 84
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0xffffffff, WriteData = 0x00000003
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 85
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0xffffffff, RegWrite = 1, Rd = 21
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0xffffffff
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SRAI (x21 = x3 >> 4 = -1 >> 4 = -1)
+#   x21 = 0xffffffff
+# 
+# ----- Testing Load/Store Instructions -----
+# 
+# === Testing SW (Store x2 to mem[0]) ===
+# 
+# Cycle: 86
+# Fetch:      PC = 0x00000000, Instr = 0x00202023
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 87
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x00202023
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 88
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 010
+# 
+# Cycle: 89
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x0000000a
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 90
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: SW (Store x2 to mem[0])
+#   mem[0] = 0x0000000a
+# Before test - Value at mem[5]: 0xabcdef01
+# 
+# === Testing LW (Load from mem[5] to x22) ===
+# 
+# Cycle: 91
+# Fetch:      PC = 0x00000000, Instr = 0x01402b03
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 92
+# Fetch:      PC = 0x00000004, Instr = 0x00000013
+# Decode:     PC = 0x00000000, Instr = 0x01402b03
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000014
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 93
+# Fetch:      PC = 0x00000008, Instr = 0x00000013
+# Decode:     PC = 0x00000004, Instr = 0x00000013
+# Execute:    PC = 0x00000000, ALUResult = 0x00000014
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000014
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x14, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000014, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 010
+# 
+# Cycle: 94
+# Fetch:      PC = 0x0000000c, Instr = 0x00000013
+# Decode:     PC = 0x00000008, Instr = 0x00000013
+# Execute:    PC = 0x00000004, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000014, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 95
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x00000013
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0xabcdef01, RegWrite = 1, Rd = 22
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: LW (Load from mem[5] to x22)
+#   x22 = 0xabcdef01
+# 
+# ----- Testing Branch Instructions -----
+# 
+# === Testing BEQ (Branch Taken) ===
+# 
+# Cycle: 96
+# Fetch:      PC = 0x00000000, Instr = 0x00500b93
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 97
+# Fetch:      PC = 0x00000004, Instr = 0x00500c13
+# Decode:     PC = 0x00000000, Instr = 0x00500b93
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000005
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 98
+# Fetch:      PC = 0x00000008, Instr = 0x018b8323
+# Decode:     PC = 0x00000004, Instr = 0x00500c13
+# Execute:    PC = 0x00000000, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000005
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000005
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x5, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 99
+# Fetch:      PC = 0x0000000c, Instr = 0x00a00c93
+# Decode:     PC = 0x00000008, Instr = 0x018b8323
+# Execute:    PC = 0x00000004, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000006
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000005
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x5, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 100
+# Fetch:      PC = 0x00000010, Instr = 0x01400c93
+# Decode:     PC = 0x0000000c, Instr = 0x00a00c93
+# Execute:    PC = 0x00000008, ALUResult = 0x0000000b
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000000
+# Writeback:  Result = 0x00000005, RegWrite = 1, Rd = 23
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000006
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x6, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000b, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 101
+# Fetch:      PC = 0x00000014, Instr = 0x01e00c93
+# Decode:     PC = 0x00000010, Instr = 0x01400c93
+# Execute:    PC = 0x0000000c, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x0000000b, WriteData = 0x00000005
+# Writeback:  Result = 0x00000005, RegWrite = 1, Rd = 24
+# Immediate Extension: 0x00000014
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 102
+# Fetch:      PC = 0x00000018, Instr = 0x00000013
+# Decode:     PC = 0x00000014, Instr = 0x01e00c93
+# Execute:    PC = 0x00000010, ALUResult = 0x00000014
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000b, RegWrite = 0, Rd = 6
+# Immediate Extension: 0x0000001e
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000014
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x14, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000014, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 103
+# Fetch:      PC = 0x0000001c, Instr = 0x00000013
+# Decode:     PC = 0x00000018, Instr = 0x00000013
+# Execute:    PC = 0x00000014, ALUResult = 0x0000001e
+# Memory:     ALUResult = 0x00000014, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 25
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000001e
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x1e, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000001e, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 104
+# Fetch:      PC = 0x00000020, Instr = 0x00000013
+# Decode:     PC = 0x0000001c, Instr = 0x00000013
+# Execute:    PC = 0x00000018, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000001e, WriteData = 0x00000000
+# Writeback:  Result = 0x00000014, RegWrite = 1, Rd = 25
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 105
+# Fetch:      PC = 0x00000024, Instr = 0x00000013
+# Decode:     PC = 0x00000020, Instr = 0x00000013
+# Execute:    PC = 0x0000001c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000001e, RegWrite = 1, Rd = 25
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 106
+# Fetch:      PC = 0x00000028, Instr = 0x00000013
+# Decode:     PC = 0x00000024, Instr = 0x00000013
+# Execute:    PC = 0x00000020, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 107
+# Fetch:      PC = 0x0000002c, Instr = 0x00000013
+# Decode:     PC = 0x00000028, Instr = 0x00000013
+# Execute:    PC = 0x00000024, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 108
+# Fetch:      PC = 0x00000030, Instr = 0x00000013
+# Decode:     PC = 0x0000002c, Instr = 0x00000013
+# Execute:    PC = 0x00000028, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 109
+# Fetch:      PC = 0x00000034, Instr = 0x00000013
+# Decode:     PC = 0x00000030, Instr = 0x00000013
+# Execute:    PC = 0x0000002c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 110
+# Fetch:      PC = 0x00000038, Instr = 0x00000013
+# Decode:     PC = 0x00000034, Instr = 0x00000013
+# Execute:    PC = 0x00000030, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 111
+# Fetch:      PC = 0x0000003c, Instr = 0x00000013
+# Decode:     PC = 0x00000038, Instr = 0x00000013
+# Execute:    PC = 0x00000034, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 112
+# Fetch:      PC = 0x00000040, Instr = 0x00000013
+# Decode:     PC = 0x0000003c, Instr = 0x00000013
+# Execute:    PC = 0x00000038, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: BEQ (Branch Taken)
+#   x25 = 0x0000001e
+# 
+# === Testing BNE (Branch Taken) ===
+# 
+# Cycle: 113
+# Fetch:      PC = 0x00000000, Instr = 0x00500b93
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 114
+# Fetch:      PC = 0x00000004, Instr = 0x00a00c13
+# Decode:     PC = 0x00000000, Instr = 0x00500b93
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000005
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 115
+# Fetch:      PC = 0x00000008, Instr = 0x018b9323
+# Decode:     PC = 0x00000004, Instr = 0x00a00c13
+# Execute:    PC = 0x00000000, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000005
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x5, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 116
+# Fetch:      PC = 0x0000000c, Instr = 0x00a00d13
+# Decode:     PC = 0x00000008, Instr = 0x018b9323
+# Execute:    PC = 0x00000004, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000006
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 117
+# Fetch:      PC = 0x00000010, Instr = 0x01400d13
+# Decode:     PC = 0x0000000c, Instr = 0x00a00d13
+# Execute:    PC = 0x00000008, ALUResult = 0x0000000b
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0x00000005, RegWrite = 1, Rd = 23
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000006
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x6, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000b, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 001
+# 
+# Cycle: 118
+# Fetch:      PC = 0x00000014, Instr = 0x02800d13
+# Decode:     PC = 0x00000010, Instr = 0x01400d13
+# Execute:    PC = 0x0000000c, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x0000000b, WriteData = 0x0000000a
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 24
+# Immediate Extension: 0x00000014
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 119
+# Fetch:      PC = 0x00000018, Instr = 0x00000013
+# Decode:     PC = 0x00000014, Instr = 0x02800d13
+# Execute:    PC = 0x00000010, ALUResult = 0x00000014
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000b, RegWrite = 0, Rd = 6
+# Immediate Extension: 0x00000028
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000014
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x14, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000014, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 120
+# Fetch:      PC = 0x0000001c, Instr = 0x00000013
+# Decode:     PC = 0x00000018, Instr = 0x00000013
+# Execute:    PC = 0x00000014, ALUResult = 0x00000028
+# Memory:     ALUResult = 0x00000014, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 26
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000028
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x28, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000028, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 121
+# Fetch:      PC = 0x00000020, Instr = 0x00000013
+# Decode:     PC = 0x0000001c, Instr = 0x00000013
+# Execute:    PC = 0x00000018, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000028, WriteData = 0x00000000
+# Writeback:  Result = 0x00000014, RegWrite = 1, Rd = 26
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 122
+# Fetch:      PC = 0x00000024, Instr = 0x00000013
+# Decode:     PC = 0x00000020, Instr = 0x00000013
+# Execute:    PC = 0x0000001c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000028, RegWrite = 1, Rd = 26
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 123
+# Fetch:      PC = 0x00000028, Instr = 0x00000013
+# Decode:     PC = 0x00000024, Instr = 0x00000013
+# Execute:    PC = 0x00000020, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 124
+# Fetch:      PC = 0x0000002c, Instr = 0x00000013
+# Decode:     PC = 0x00000028, Instr = 0x00000013
+# Execute:    PC = 0x00000024, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 125
+# Fetch:      PC = 0x00000030, Instr = 0x00000013
+# Decode:     PC = 0x0000002c, Instr = 0x00000013
+# Execute:    PC = 0x00000028, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 126
+# Fetch:      PC = 0x00000034, Instr = 0x00000013
+# Decode:     PC = 0x00000030, Instr = 0x00000013
+# Execute:    PC = 0x0000002c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 127
+# Fetch:      PC = 0x00000038, Instr = 0x00000013
+# Decode:     PC = 0x00000034, Instr = 0x00000013
+# Execute:    PC = 0x00000030, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 128
+# Fetch:      PC = 0x0000003c, Instr = 0x00000013
+# Decode:     PC = 0x00000038, Instr = 0x00000013
+# Execute:    PC = 0x00000034, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 129
+# Fetch:      PC = 0x00000040, Instr = 0x00000013
+# Decode:     PC = 0x0000003c, Instr = 0x00000013
+# Execute:    PC = 0x00000038, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: BNE (Branch Taken)
+#   x26 = 0x00000028
+# 
+# === Testing BLT (Branch Taken when rs1 < rs2) ===
+# 
+# Cycle: 130
+# Fetch:      PC = 0x00000000, Instr = 0x00500a13
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 131
+# Fetch:      PC = 0x00000004, Instr = 0x00a00a93
+# Decode:     PC = 0x00000000, Instr = 0x00500a13
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000005
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 132
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000004, Instr = 0x00a00a93
+# Execute:    PC = 0x00000000, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000005
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x5, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 133
+# Fetch:      PC = 0x0000000c, Instr = 0x00000b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000004, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 134
+# Fetch:      PC = 0x00000010, Instr = 0x03200b13
+# Decode:     PC = 0x0000000c, Instr = 0x00000b13
+# Execute:    PC = 0x00000008, ALUResult = 0x00000005
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0x00000005, RegWrite = 1, Rd = 20
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000005, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x5, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000005, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 0, branch_E: 1, funct3_E: 010
+# 
+# Cycle: 135
+# Fetch:      PC = 0x00000014, Instr = 0x02800d13
+# Decode:     PC = 0x00000010, Instr = 0x03200b13
+# Execute:    PC = 0x0000000c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000005, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 21
+# Immediate Extension: 0x00000032
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 136
+# Fetch:      PC = 0x00000018, Instr = 0x00000013
+# Decode:     PC = 0x00000014, Instr = 0x02800d13
+# Execute:    PC = 0x00000010, ALUResult = 0x00000032
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000005, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000028
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000032
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x32, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000032, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 137
+# Fetch:      PC = 0x0000001c, Instr = 0x00000013
+# Decode:     PC = 0x00000018, Instr = 0x00000013
+# Execute:    PC = 0x00000014, ALUResult = 0x00000028
+# Memory:     ALUResult = 0x00000032, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 22
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000028
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x28, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000028, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 138
+# Fetch:      PC = 0x00000020, Instr = 0x00000013
+# Decode:     PC = 0x0000001c, Instr = 0x00000013
+# Execute:    PC = 0x00000018, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000028, WriteData = 0x00000000
+# Writeback:  Result = 0x00000032, RegWrite = 1, Rd = 22
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 139
+# Fetch:      PC = 0x00000024, Instr = 0x00000013
+# Decode:     PC = 0x00000020, Instr = 0x00000013
+# Execute:    PC = 0x0000001c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000028, RegWrite = 1, Rd = 26
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 140
+# Fetch:      PC = 0x00000028, Instr = 0x00000013
+# Decode:     PC = 0x00000024, Instr = 0x00000013
+# Execute:    PC = 0x00000020, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 141
+# Fetch:      PC = 0x0000002c, Instr = 0x00000013
+# Decode:     PC = 0x00000028, Instr = 0x00000013
+# Execute:    PC = 0x00000024, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 142
+# Fetch:      PC = 0x00000030, Instr = 0x00000013
+# Decode:     PC = 0x0000002c, Instr = 0x00000013
+# Execute:    PC = 0x00000028, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 143
+# Fetch:      PC = 0x00000034, Instr = 0x00000013
+# Decode:     PC = 0x00000030, Instr = 0x00000013
+# Execute:    PC = 0x0000002c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 144
+# Fetch:      PC = 0x00000038, Instr = 0x00000013
+# Decode:     PC = 0x00000034, Instr = 0x00000013
+# Execute:    PC = 0x00000030, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000005, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: BLT (Branch Taken when rs1 < rs2)
+#   x22 = 0x00000032
+# x0 = 0x00000000
+# x1 = 0x00000005
+# x2 = 0x0000000a
+# x3 = 0xffffffff
+# x4 = 0x00000003
+# x5 = 0x00000000
+# x6 = 0x00000000
+# x7 = 0x00000000
+# x8 = 0x00000000
+# x9 = 0x00000000
+# x10 = 0x00000000
+# x11 = 0x00000000
+# x12 = 0x00000000
+# x13 = 0x00000000
+# x14 = 0x00000000
+# x15 = 0x00000000
+# x16 = 0x00000000
+# x17 = 0x00000000
+# x18 = 0x00000000
+# x19 = 0x00000000
+# x20 = 0x00000000
+# x21 = 0x00000000
+# x22 = 0x00000000
+# x23 = 0x00000000
+# x24 = 0x00000000
+# x25 = 0x00000000
+# x26 = 0x00000000
+# x27 = 0x00000000
+# x28 = 0x00000000
+# x29 = 0x00000000
+# x30 = 0x00000000
+# x31 = 0x00000000
+# ========================================
+# 
+# 
+# === Testing BLT (Branch Not Taken when rs1 >= rs2) ===
+# 
+# Cycle: 145
+# Fetch:      PC = 0x00000000, Instr = 0x00f00a13
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 146
+# Fetch:      PC = 0x00000004, Instr = 0x00a00a93
+# Decode:     PC = 0x00000000, Instr = 0x00f00a13
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000f
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 147
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000004, Instr = 0x00a00a93
+# Execute:    PC = 0x00000000, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000f
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0xf, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 148
+# Fetch:      PC = 0x0000000c, Instr = 0x01900b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000004, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 149
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x01900b13
+# Execute:    PC = 0x00000008, ALUResult = 0x0000000f
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 1, Rd = 20
+# Immediate Extension: 0x00000019
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x0000000f, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0xf, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000f, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 0, branch_E: 1, funct3_E: 010
+# 
+# Cycle: 150
+# Fetch:      PC = 0x00000014, Instr = 0x00000013
+# Decode:     PC = 0x00000010, Instr = 0x00000013
+# Execute:    PC = 0x0000000c, ALUResult = 0x00000019
+# Memory:     ALUResult = 0x0000000f, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 21
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000019
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x19, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000019, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 151
+# Fetch:      PC = 0x00000018, Instr = 0x00000013
+# Decode:     PC = 0x00000014, Instr = 0x00000013
+# Execute:    PC = 0x00000010, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000019, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000f, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 152
+# Fetch:      PC = 0x0000001c, Instr = 0x00000013
+# Decode:     PC = 0x00000018, Instr = 0x00000013
+# Execute:    PC = 0x00000014, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000019, RegWrite = 1, Rd = 22
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 153
+# Fetch:      PC = 0x00000020, Instr = 0x00000013
+# Decode:     PC = 0x0000001c, Instr = 0x00000013
+# Execute:    PC = 0x00000018, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 154
+# Fetch:      PC = 0x00000024, Instr = 0x00000013
+# Decode:     PC = 0x00000020, Instr = 0x00000013
+# Execute:    PC = 0x0000001c, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 155
+# Fetch:      PC = 0x00000028, Instr = 0x00000013
+# Decode:     PC = 0x00000024, Instr = 0x00000013
+# Execute:    PC = 0x00000020, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 156
+# Fetch:      PC = 0x0000002c, Instr = 0x00000013
+# Decode:     PC = 0x00000028, Instr = 0x00000013
+# Execute:    PC = 0x00000024, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 157
+# Fetch:      PC = 0x00000030, Instr = 0x00000013
+# Decode:     PC = 0x0000002c, Instr = 0x00000013
+# Execute:    PC = 0x00000028, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 1, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x0000000f, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# TEST PASSED: BLT (Branch Not Taken when rs1 >= rs2)
+#   x22 = 0x00000019
+# 
+# ----- Testing U-Type Instructions -----
+# 
+# === Testing LUI (x27 = 0xABCDE000) ===
+# 
+# Cycle: 158
+# Fetch:      PC = 0x00000000, Instr = 0xabcdedb7
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 159
+# Fetch:      PC = 0x00000004, Instr = 0x00a00a93
+# Decode:     PC = 0x00000000, Instr = 0xabcdedb7
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0xabcde000
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 160
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000004, Instr = 0x00a00a93
+# Execute:    PC = 0x00000000, ALUResult = 0xabcde000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x0000000a
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0xabcde000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0xabcde000, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0xabcde000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 110
+# 
+# Cycle: 161
+# Fetch:      PC = 0x0000000c, Instr = 0x01900b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000004, ALUResult = 0x0000000a
+# Memory:     ALUResult = 0xabcde000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x0000000a
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0xa, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x0000000a, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 162
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x01900b13
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x0000000a, WriteData = 0x00000000
+# Writeback:  Result = 0xabcde000, RegWrite = 1, Rd = 27
+# Immediate Extension: 0x00000019
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x00000000
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 1, branch_E: 1, funct3_E: 010
+# TEST PASSED: LUI (x27 = 0xABCDE000)
+#   x27 = 0xabcde000
+# 
+# Cycle: 163
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x0000000a, RegWrite = 1, Rd = 21
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 164
+# Fetch:      PC = 0x0000000c, Instr = 0x01900b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 165
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x01900b13
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000019
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 1, branch_E: 1, funct3_E: 010
+# 
+# Cycle: 166
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 167
+# Fetch:      PC = 0x0000000c, Instr = 0x01900b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 168
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x01900b13
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000019
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 1, branch_E: 1, funct3_E: 010
+# 
+# Cycle: 169
+# Fetch:      PC = 0x00000008, Instr = 0x010a2063
+# Decode:     PC = 0x00000000, Instr = 0x00000000
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x00000000
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 170
+# Fetch:      PC = 0x0000000c, Instr = 0x01900b13
+# Decode:     PC = 0x00000008, Instr = 0x010a2063
+# Execute:    PC = 0x00000000, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000000
+# ALUControl: 0x0000000a
+# ALUSrc: 0
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0xa, ALUSrc: 0
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0x0
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x00000000
+# BLT Debug - PCSrc_E: 0, branch_E: 0, funct3_E: 000
+# 
+# Cycle: 171
+# Fetch:      PC = 0x00000010, Instr = 0x00000013
+# Decode:     PC = 0x0000000c, Instr = 0x01900b13
+# Execute:    PC = 0x00000008, ALUResult = 0x00000000
+# Memory:     ALUResult = 0x00000000, WriteData = 0x00000000
+# Writeback:  Result = 0x00000000, RegWrite = 0, Rd = 0
+# Immediate Extension: 0x00000019
+# ALUControl: 0x00000000
+# ALUSrc: 1
+# Execute Stage - srcA: 0x00000000, srcB: 0x00000000
+# LW Decode Stage - ALUControl: 0x0, ALUSrc: 1
+# LW Execute Stage - srcA: 0x0, srcB: 0x0, ALUControl: 0xa
+# BLT Debug - x20 value: 0x00000000, x21 value: 0x0000000a
+# BLT Debug - ALUResult: 0x00000000, ALUControl: 0x0000000a
+# BLT Debug - PCSrc_E: 1, branch_E: 1, funct3_E: 010
+# 
+# ===========================================================
+#                     TEST SUMMARY                           
+# ===========================================================
+# Total Tests:    24
+# Passed Tests:   24
+# Failed Tests:   0
+# Pass Rate:      100.0%
+# ===========================================================
+# ALL TESTS PASSED!
+# ===========================================================
+# ** Note: $finish    : ./tb_unittest.sv(524)
+#    Time: 2435 ns  Iteration: 0  Instance: /tb
+# End time: 22:20:57 on Sep 27,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
