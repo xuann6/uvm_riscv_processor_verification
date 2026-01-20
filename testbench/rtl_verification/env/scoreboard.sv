@@ -29,7 +29,7 @@ class scoreboard extends uvm_scoreboard;
     function void reset_models();
         // initialize register file model (register 0 is hardwired to 0)
         for (int i = 0; i < 32; i++) begin
-            reg_file_model[i] = (i == 0) ? 32'h0 : 32'h0;
+            reg_file_model[i] = 32'h0;
         end
         
         mem_model.delete();
