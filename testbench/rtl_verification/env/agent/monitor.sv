@@ -50,15 +50,11 @@ class monitor extends uvm_monitor;
                     // send to the scoreboard
                     analysis_port.write(tx);
                 end
-            
-                // Monitor for new instructions
-                // if (vif.monitor_cb.monitor_instr != 32'h0) begin        
-                //     // Track new instruction
-                //     track_new_instruction();
-                // end
                 
                 // Monitor memory operations
-                monitor_memory_operations();
+                if (vif.monitor_cb.dmem_write) begin
+                    monitor_memory_operations();
+                end
                 
                 // Wait for next clock edge
                 @(vif.monitor_cb);
@@ -82,40 +78,12 @@ class monitor extends uvm_monitor;
         //            tx.result_reg, tx.result, tx.instr_name, tx.pc), UVM_MEDIUM)
         
         return tx;
-        
     endfunction
-    
-    // Track a new instruction entering the pipeline
-    task track_new_instruction();
-        transaction tx = transaction::type_id::create("tx");
-        
-        // Capture instruction and PC
-        tx.instruction = vif.monitor_cb.monitor_instr;
-        tx.pc = vif.monitor_cb.monitor_pc;
-        
-        // Decode instruction fields
-        tx.decode_instruction();
-        
-        // Store in tracking map
-        instr_map[tx.pc] = tx;
-        
-        `uvm_info("MONITOR", $sformatf("Tracking new instruction: %s at PC=0x%8h", tx.instr_name, tx.pc), UVM_MEDIUM)
-    endtask
     
     // Monitor memory operations
     task monitor_memory_operations();
-        // Monitor memory writes
-        if (vif.monitor_cb.dmem_write) begin
-        bit [31:0] addr = {18'b0, vif.monitor_cb.dmem_addr};
-        
-        `uvm_info("MONITOR", $sformatf("Observed memory write: Addr=0x%8h, Data=0x%8h",
-                    addr, vif.monitor_cb.dmem_wdata), UVM_MEDIUM)
-                    
-        // Here you would tie this memory write to a specific instruction
-        // if you can correlate it to a PC value
-        end
+        // TBD
     endtask
 
 endclass
-
 `endif
