@@ -18,6 +18,7 @@ In the following I documented most of the issues and questions I had when doing 
 
 ## References
 - [chipverify.com](https://www.chipverify.com/)
+- [SystemVerilog - Event Scheduling Algorithm](https://verificationguide.com/systemverilog/systemverilog-scheduling-semantics/)
 
 ## Processor Implementation
 > TBD
