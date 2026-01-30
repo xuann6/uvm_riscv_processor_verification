@@ -17,11 +17,11 @@ class driver extends uvm_driver #(transaction);
             `uvm_fatal("DRIVER", "Could not get virtual interface")
     endfunction
     
-    task run_phase(uvm_phase phase);
-        transaction tx;
+    task run_phase(uvm_phase phase);        
         
-        vif.driver_cb.test_mode <= 1; // for UVM testing,
-                                      // DUT will read instructions from UVM interface directly
+        @(negedge vif.reset);
+        vif.driver_cb.instr_mode <= 1; // for UVM testing,
+                                       // DUT will read instructions from UVM interface directly
 
         forever begin
             seq_item_port.get_next_item(tx);
@@ -32,22 +32,17 @@ class driver extends uvm_driver #(transaction);
     
     task drive_instruction(transaction tx);
 
-        wait(vif.driver_cb.test_ready);
-        vif.driver_cb.test_instr <= tx.instruction;
-        
-        @(vif.driver_cb); // wait for one clock cycle
-                
+        vif.driver_cb.instr_ext <= tx.instruction;
         `uvm_info("DRIVER", $sformatf("Drove instruction: %s", tx.convert2string()), UVM_HIGH)
+
+        @(vif.driver_cb); // wait for one cycle
     endtask
     
     task reset_phase(uvm_phase phase);
         phase.raise_objection(this);
-        vif.driver_cb.test_mode <= 0;
-        vif.driver_cb.test_instr <= 32'h00000013;
         @(negedge vif.reset);
         phase.drop_objection(this);
     endtask
     
 endclass
-
 `endif
