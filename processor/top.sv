@@ -14,13 +14,18 @@
 
 module RISCVPipelined(
     input logic clk,
-    input logic reset
+    input logic reset, 
+
+    input logic instr_mode, // 0: from inst memory, 1: from external input
+                            // this gives the flexibility to test from either instuction memory or external stimulus from UVM environment
+    input logic [31:0] instr_ext
 );
     // Fetch
     logic [31:0] PC_F;
     logic [31:0] PC_next;
     logic [31:0] PC_plus4_F;
     logic [31:0] instruction_F;
+    logic [31:0] instruction_from_mem;  // instruction from internal memory
     logic stall_F;
     logic flush_F;
     
@@ -107,11 +112,12 @@ module RISCVPipelined(
     // Instruction Memory
     inst_memory imem(
         .addr(PC_F[11:0]),
-        .inst(instruction_F)
+        .inst(instruction_from_mem)
     );
     
     assign PC_plus4_F = PC_F + 32'd4;
     assign PC_next = PCSrc_E ? PC_target_E : PC_plus4_F;
+    assign instruction_F = instr_mode ? instr_ext : instruction_from_mem;
     
     // ===== IF/ID Pipeline Register =====
     IFID if_id(
