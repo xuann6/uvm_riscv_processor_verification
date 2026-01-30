@@ -37,6 +37,8 @@ module tb;
     RISCVPipelined dut(
         .clk(clk),
         .reset(reset)
+        .instr_mode(intf.instr_mode),
+        .instr_ext(intf.instr_ext)
     );
     
     // Todo: 

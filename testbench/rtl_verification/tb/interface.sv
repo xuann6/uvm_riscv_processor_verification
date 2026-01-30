@@ -1,5 +1,9 @@
 interface riscv_if(input logic clk, input logic reset);
   
+  // input for DUT for instruction source selection
+  logic        instr_mode; // 0=memory, 1=external
+  logic [31:0] instr_ext;
+
   // monitor/checking
   logic [31:0] monitor_pc;
   logic [31:0] monitor_instr;
@@ -11,22 +15,12 @@ interface riscv_if(input logic clk, input logic reset);
   
   // driver clocking block (for initialization and stimulus)
   clocking driver_cb @(posedge clk);
-    
-    // Todo: for future extension, currently not driving anything to DUT
-    // output init_mem, init_data, init_addr;
-    // output imem_write, imem_addr, imem_wdata;
-    // output rf_raddr1, rf_raddr2;
-    // input rf_rdata1, rf_rdata2;
-  
+    output instr_mode, instr_ext;
   endclocking
   
   // monitor clocking block (for checking results)
   clocking monitor_cb @(posedge clk);
-
     input monitor_pc, monitor_instr, monitor_result, monitor_rd, monitor_regwrite;  
-    // Todo: for future extension
-    // input dmem_addr, dmem_wdata, dmem_rdata, dmem_write;
-    
   endclocking
   
   // modport for driver
