@@ -3,6 +3,19 @@
 ## Overview
 This document describes the SystemVerilog Assertions (SVA) used to verify the RISC-V pipelined processor implementation in this project.
 
+## Future Work
+### A1
+1. Branch/jump target validity
+
+### A2
+1. 
+
+### A3
+1. Memory alignment (e.g., LW/SW must be 4-byte aligned)
+2. Overflow/underflow check
+
+### A4
+
 ## Assertion Categories
 
 ### A1: Control Flow Assertions (1 assertion)
