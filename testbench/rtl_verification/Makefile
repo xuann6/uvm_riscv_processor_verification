@@ -54,13 +54,27 @@ BINARY  = $(OBJ_DIR)/V$(TOP_MODULE)
 # Default test name (override with: make run TEST=riscv_r_type_test)
 TEST ?= riscv_base_test
 
-.PHONY: all build run clean rebuild help
+# UVM download URL
+UVM_TARBALL_URL = https://www.accellera.org/images/downloads/standards/uvm/Accellera-1800.2-2017-1.0.tar.gz
+UVM_PKG_SV = $(UVM_HOME)/uvm_pkg.sv
+
+.PHONY: all build run clean rebuild help setup
 
 all: run
 
 build: $(BINARY)
 
-$(BINARY): $(TB_FILE) $(wildcard $(PROC_DIR)/*.sv)
+# Download UVM sources if not present
+setup: $(UVM_PKG_SV)
+
+$(UVM_PKG_SV):
+	@echo "=== Downloading UVM 2017-1.0 sources ==="
+	curl -sL $(UVM_TARBALL_URL) -o /tmp/uvm-2017.tar.gz
+	tar -xzf /tmp/uvm-2017.tar.gz -C $(REPO_ROOT)
+	rm -f /tmp/uvm-2017.tar.gz
+	@echo "=== UVM sources installed to $(REPO_ROOT)/1800.2-2017-1.0 ==="
+
+$(BINARY): $(UVM_PKG_SV) $(TB_FILE) $(wildcard $(PROC_DIR)/*.sv)
 	@echo "=== Building with Verilator + UVM ==="
 	@echo "UVM_HOME = $(UVM_HOME)"
 	$(VERILATOR) $(VFLAGS) $(SRC)
@@ -77,7 +91,8 @@ rebuild: clean all
 
 help:
 	@echo "Usage:"
-	@echo "  make build                         - Compile only"
+	@echo "  make setup                         - Download UVM 2017-1.0 sources (run once)"
+	@echo "  make build                         - Compile (auto-downloads UVM if needed)"
 	@echo "  make run                           - Build and run default test (riscv_base_test)"
 	@echo "  make run TEST=riscv_r_type_test    - Run R-type instruction test"
 	@echo "  make run TEST=riscv_i_type_test    - Run I-type instruction test"

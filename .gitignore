@@ -1,0 +1,11 @@
+# UVM sources (downloaded at build time)
+1800.2-2017-1.0/
+
+# Verilator build output
+obj_dir/
+
+# macOS
+.DS_Store
+
+# IDE
+.claude/
