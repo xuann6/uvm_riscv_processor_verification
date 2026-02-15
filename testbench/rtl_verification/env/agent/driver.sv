@@ -17,8 +17,9 @@ class driver extends uvm_driver #(transaction);
             `uvm_fatal("DRIVER", "Could not get virtual interface")
     endfunction
     
-    task run_phase(uvm_phase phase);        
-        
+    task run_phase(uvm_phase phase);
+        transaction tx;
+
         @(negedge vif.reset);
         vif.driver_cb.instr_mode <= 1; // for UVM testing,
                                        // DUT will read instructions from UVM interface directly

@@ -10,6 +10,7 @@ interface riscv_if(input logic clk, input logic reset);
   logic [31:0] monitor_result;
   logic [4:0]  monitor_rd;
   logic        monitor_regwrite;
+  logic        dmem_write;
   
   // Clocking blocks for driver and monitor
   
@@ -20,7 +21,7 @@ interface riscv_if(input logic clk, input logic reset);
   
   // monitor clocking block (for checking results)
   clocking monitor_cb @(posedge clk);
-    input monitor_pc, monitor_instr, monitor_result, monitor_rd, monitor_regwrite;  
+    input monitor_pc, monitor_instr, monitor_result, monitor_rd, monitor_regwrite, dmem_write;
   endclocking
   
   // modport for driver

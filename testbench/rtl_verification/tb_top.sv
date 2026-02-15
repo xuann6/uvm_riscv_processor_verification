@@ -36,7 +36,7 @@ module tb;
     // DUT instantiation
     RISCVPipelined dut(
         .clk(clk),
-        .reset(reset)
+        .reset(reset),
         .instr_mode(intf.instr_mode),
         .instr_ext(intf.instr_ext)
     );
@@ -49,6 +49,7 @@ module tb;
     assign intf.monitor_result = dut.result_W;
     assign intf.monitor_regwrite = dut.regWrite_W;
     assign intf.monitor_rd = dut.rd_W;
+    assign intf.dmem_write = dut.memWrite_M;
     
     initial begin
         // Register interface with UVM config database

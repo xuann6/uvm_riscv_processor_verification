@@ -19,8 +19,10 @@ class transaction extends uvm_sequence_item;
     // expected result for scoreboard
     bit [31:0] result;
     bit [4:0]  result_reg;
-    bit        reg_write; 
+    bit        reg_write;
     bit        mem_write;
+    bit [31:0] mem_addr;
+    bit [31:0] mem_data;
 
     typedef enum {R_TYPE,
                   I_TYPE,
