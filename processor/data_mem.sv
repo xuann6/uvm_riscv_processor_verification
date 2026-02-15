@@ -8,7 +8,7 @@ module data_memory(
     output reg [31:0] r_data
 );
   
-    reg [31:0] mem [0:1<<12-1]; // memory size 16KB
+    reg [31:0] mem [0:(1<<12)-1]; // memory size 16KB
     wire [11:0] word_addr = addr[13:2];
 
     initial begin

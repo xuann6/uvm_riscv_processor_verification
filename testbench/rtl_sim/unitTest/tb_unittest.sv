@@ -24,19 +24,19 @@ module tb;
     logic [31:0] actual_result;
     string test_name;
     
-    task init_instruction_memory(input logic [31:0] instructions[], input int size);
+    task init_instruction_memory(input logic [31:0] instructions[128], input int size);
         for (int i = 0; i < size; i++) begin
             dut.imem.inst_mem[i] = instructions[i];
         end
     endtask
     
-    task init_data_memory(input logic [31:0] data[], input int size, input int start_addr = 0);
+    task init_data_memory(input logic [31:0] data[32], input int size, input int start_addr /*= 0*/);
         for (int i = 0; i < size; i++) begin
             dut.dmem.mem[start_addr + i] = data[i];
         end
     endtask
     
-    task init_register_file(input logic [31:0] reg_values[]);
+    task init_register_file(input logic [31:0] reg_values[32]);
         for (int i = 1; i < 32; i++) begin
             dut.rf.r_file[i] = reg_values[i];
         end
@@ -48,7 +48,7 @@ module tb;
         actual_result = dut.rf.r_file[reg_num];
         total_tests++;
         
-        if (actual_result !== expected_value) begin
+        if (actual_result != expected_value) begin
             $display("TEST FAILED: %s", instr_name);
             $display("  Expected x%0d = 0x%8h, Got 0x%8h", reg_num, expected_value, actual_result);
             failed_tests++;
@@ -63,7 +63,7 @@ module tb;
         actual_result = dut.dmem.mem[addr];
         total_tests++;
         
-        if (actual_result !== expected_value) begin
+        if (actual_result != expected_value) begin
             $display("TEST FAILED: %s", instr_name);
             $display("  Expected mem[%0d] = 0x%8h, Got 0x%8h", addr, expected_value, actual_result);
             failed_tests++;
@@ -125,7 +125,7 @@ module tb;
         
         reset_processor();
         init_register_file(initial_regs);
-        init_data_memory(data_mem, 32);
+        init_data_memory(data_mem, 32, 0);
         
         $display("\n===========================================================");
         $display("      STARTING RISC-V PIPELINED PROCESSOR TESTS             ");
@@ -341,7 +341,7 @@ module tb;
         // 3.1 SW - Store Word: mem[rs1+imm] = rs2
         reset_processor();
         init_register_file(initial_regs);
-        init_data_memory(data_mem, 32);
+        init_data_memory(data_mem, 32, 0);
         test_name = "SW (Store x2 to mem[0])";
         $display("\n=== Testing %s ===", test_name);
         test_instruction = 32'b00000000001000000010000000100011; // SW x2, 0(x0)
@@ -359,7 +359,7 @@ module tb;
         // 3.2 LW - Load Word: rd = mem[rs1+imm]
         reset_processor();
         init_register_file(initial_regs);
-        init_data_memory(data_mem, 32);
+        init_data_memory(data_mem, 32, 0);
         
         $display("Before test - Value at mem[5]: 0x%8h", dut.dmem.mem[5]);
 

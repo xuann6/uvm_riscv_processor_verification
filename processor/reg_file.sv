@@ -24,22 +24,21 @@ module registerFile(
         end
     end
 
-    always @(posedge reset) begin // initialize the r_file value to all zero
-        integer i;
-        for (i = 0; i < 32; i = i + 1) begin
-            r_file[i] <= 32'd0;
-        end
-
-        // Initialize test values to match UVM environment
-        r_file[1] <= 32'h00000005;  // x1 = 5
-        r_file[2] <= 32'h0000000A;  // x2 = 10  
-        r_file[3] <= 32'hFFFFFFFF;  // x3 = -1
-        r_file[4] <= 32'h00000003;  // x4 = 3
-    end
-
     always @(negedge clk) begin
-        if (w_enable==1'b1 && rd!=5'd0) // make sure x0 is always zero
-            r_file[rd] = w_data;
+        if (reset) begin
+            integer i;
+            for (i = 0; i < 32; i = i + 1) begin
+                r_file[i] <= 32'd0;
+            end
+            // Initialize test values to match UVM environment
+            r_file[1] <= 32'h00000005;  // x1 = 5
+            r_file[2] <= 32'h0000000A;  // x2 = 10
+            r_file[3] <= 32'hFFFFFFFF;  // x3 = -1
+            r_file[4] <= 32'h00000003;  // x4 = 3
+        end
+        else if (w_enable==1'b1 && rd!=5'd0) begin // make sure x0 is always zero
+            r_file[rd] <= w_data;
+        end
     end
 
 endmodule
