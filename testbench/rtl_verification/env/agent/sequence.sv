@@ -44,6 +44,13 @@ class file_based_seq extends base_seq;
 
         `uvm_info("SEQ", $sformatf("Reading from: %s", filename), UVM_LOW)
 
+        // Send leading NOPs to fill pipeline before real instructions,
+        // ensuring the monitor captures all WB-stage results
+        for (int i = 0; i < 5; i++) begin
+            tx = create_instr(32'h00000013); // NOP: ADDI x0, x0, 0
+            send_tx(tx);
+        end
+
         while(!$feof(file)) begin
             void'($fgets(line, file));
             
@@ -62,6 +69,15 @@ class file_based_seq extends base_seq;
 
         $fclose(file);
         `uvm_info("SEQ", "Completed file reading", UVM_LOW)
+
+        // Send NOPs to flush the pipeline (5 stages) and prevent
+        // the last instruction from being re-fetched repeatedly
+        for (int i = 0; i < 5; i++) begin
+            tx = create_instr(32'h00000013); // NOP: ADDI x0, x0, 0
+            send_tx(tx);
+        end
+        `uvm_info("SEQ", "Pipeline flush NOPs sent", UVM_LOW)
+
     endtask
 endclass
 

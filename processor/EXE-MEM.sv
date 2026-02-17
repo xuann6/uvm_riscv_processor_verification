@@ -4,6 +4,7 @@ module EXMEM(
     input clk, reset,
     
     // Data path inputs
+    input [31:0] instruction_E,
     input [31:0] ALUResult_E,
     input [31:0] writeData_E,    // RD2E forwarded to MEM stage
     input [31:0] PC_plus4_E,
@@ -15,6 +16,7 @@ module EXMEM(
     input memWrite_E,
     
     // Data path outputs
+    output reg [31:0] instruction_M,
     output reg [31:0] ALUResult_M,
     output reg [31:0] writeData_M,
     output reg [31:0] PC_plus4_M,
@@ -28,6 +30,7 @@ module EXMEM(
     
     always @(posedge clk) begin
         if (reset == 1'b1) begin // no flush here
+            instruction_M <= 32'b0;
             ALUResult_M <= 32'b0;
             writeData_M <= 32'b0;
             PC_plus4_M <= 32'b0;
@@ -38,6 +41,7 @@ module EXMEM(
             memWrite_M <= 1'b0;
         end
         else begin
+            instruction_M <= instruction_E;
             ALUResult_M <= ALUResult_E;
             writeData_M <= writeData_E;
             PC_plus4_M <= PC_plus4_E;

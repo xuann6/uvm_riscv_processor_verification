@@ -39,11 +39,8 @@ class driver extends uvm_driver #(transaction);
         @(vif.driver_cb); // wait for one cycle
     endtask
     
-    task reset_phase(uvm_phase phase);
-        phase.raise_objection(this);
-        @(negedge vif.reset);
-        phase.drop_objection(this);
-    endtask
-    
+    // Note: reset_phase removed - Verilator with UVM_NO_DPI does not support
+    // UVM runtime sub-phases. Reset wait is handled in run_phase above.
+
 endclass
 `endif

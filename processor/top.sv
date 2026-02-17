@@ -50,6 +50,7 @@ module RISCVPipelined(
     logic flush_D;
     
     // Execute
+    logic [31:0] instruction_E;
     logic [31:0] PC_E;
     logic [31:0] PC_plus4_E;
     logic [31:0] rd1_E, rd2_E;
@@ -72,6 +73,7 @@ module RISCVPipelined(
     logic flush_E;
     
     // Memory
+    logic [31:0] instruction_M;
     logic [31:0] ALUResult_M;
     logic [31:0] writeData_M;
     logic [31:0] PC_plus4_M;
@@ -83,6 +85,7 @@ module RISCVPipelined(
     logic memWrite_M;
     
     // Writeback
+    logic [31:0] instruction_W;
     logic [31:0] ALUResult_W;
     logic [31:0] readData_W;
     logic [31:0] PC_plus4_W;
@@ -206,7 +209,9 @@ module RISCVPipelined(
         .jump_D(jump_D),
         .ALUControl_D(ALUControl_D),
         .ALUSrc_D(ALUSrc_D),
+        .instruction_D(instruction_D),
         .flush(flush_E),
+        .instruction_E(instruction_E),
         .PC_E(PC_E),
         .PC_plus4_E(PC_plus4_E),
         .rd1_E(rd1_E),
@@ -280,6 +285,7 @@ module RISCVPipelined(
     EXMEM ex_mem(
         .clk(clk), 
         .reset(reset),
+        .instruction_E(instruction_E),
         .ALUResult_E(ALUResult_E),
         .writeData_E(writeData_E),
         .PC_plus4_E(PC_plus4_E),
@@ -287,6 +293,7 @@ module RISCVPipelined(
         .regWrite_E(regWrite_E),
         .resultSrc_E(resultSrc_E),
         .memWrite_E(memWrite_E),
+        .instruction_M(instruction_M),
         .ALUResult_M(ALUResult_M),
         .writeData_M(writeData_M),
         .PC_plus4_M(PC_plus4_M),
@@ -311,12 +318,14 @@ module RISCVPipelined(
     MEMWB mem_wb(
         .clk(clk), 
         .reset(reset),
+        .instruction_M(instruction_M),
         .ALUResult_M(ALUResult_M),
         .r_Data_M(readData_M),
         .PC_plus4_M(PC_plus4_M),
         .rd_M(rd_M),
         .regWrite_M(regWrite_M),
         .resultSrc_M(resultSrc_M),
+        .instruction_W(instruction_W),
         .ALUResult_W(ALUResult_W),
         .r_Data_W(readData_W),
         .PC_plus4_W(PC_plus4_W),

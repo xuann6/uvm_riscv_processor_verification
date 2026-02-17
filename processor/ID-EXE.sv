@@ -23,9 +23,12 @@ module IDEX(
     input [4:0] ALUControl_D, // support 5 bits for extending differnet ALU operation
     input ALUSrc_D,                   
   
-    input flush,
-  
+    input [31:0] instruction_D,
+
+  input flush,
+
     // Data path outputs
+    output reg [31:0] instruction_E,
     output reg [31:0] PC_E,
     output reg [31:0] PC_plus4_E,
     output reg [31:0] rd1_E,
@@ -48,6 +51,7 @@ module IDEX(
   
     always @(posedge clk) begin
         if (reset == 1'b1 || flush == 1'b1) begin
+            instruction_E <= 32'b0;
             PC_E <= 32'b0;
             PC_plus4_E <= 32'b0;
             rd1_E <= 32'b0;
@@ -67,6 +71,7 @@ module IDEX(
             ALUSrc_E <= 1'b0;
         end
         else begin
+            instruction_E <= instruction_D;
             PC_E <= PC_D;
             PC_plus4_E <= PC_plus4_D;
             rd1_E <= r_data1;

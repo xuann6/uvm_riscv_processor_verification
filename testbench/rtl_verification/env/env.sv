@@ -44,23 +44,23 @@ class riscv_env extends uvm_env;
         mon.analysis_port.connect(scb.analysis_imp);
     endfunction
     
-    task reset_phase(uvm_phase phase);
-        // We are using task here since we will consume simulation time
-        // for all the initialization and reset. 
+    // Initialize scoreboard models before simulation starts.
+    // Uses start_of_simulation_phase (a function phase) instead of reset_phase
+    // because Verilator with UVM_NO_DPI does not support UVM runtime sub-phases
+    // (reset_phase, configure_phase, etc.) - only run_phase works.
+    function void start_of_simulation_phase(uvm_phase phase);
+        super.start_of_simulation_phase(phase);
 
-        phase.raise_objection(this);
-        
         scb.reset_models();
-        
-        
+
         `uvm_info("ENV", $sformatf("\033[1;34m Initializing scoreboard reg value\033[0m"), UVM_LOW)
         initialize_default_registers();
-        
+
         `uvm_info("ENV", $sformatf("\033[1;34m Initializing scoreboard memory value\033[0m"), UVM_LOW)
         initialize_default_memory();
-        
-        phase.drop_objection(this);
-    endtask
+
+        `uvm_info("ENV", "Scoreboard initialized", UVM_LOW)
+    endfunction
     
     // Helper method to initialize registers with default values
     function void initialize_default_registers();

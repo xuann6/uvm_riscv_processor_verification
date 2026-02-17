@@ -4,6 +4,7 @@ module MEMWB(
     input clk, reset,
     
     // Data path inputs
+    input [31:0] instruction_M,
     input [31:0] ALUResult_M,
     input [31:0] r_Data_M,
     input [31:0] PC_plus4_M,
@@ -14,6 +15,7 @@ module MEMWB(
     input [1:0] resultSrc_M,
     
     // Data path outputs
+    output reg [31:0] instruction_W,
     output reg [31:0] ALUResult_W,
     output reg [31:0] r_Data_W,
     output reg [31:0] PC_plus4_W,
@@ -26,6 +28,7 @@ module MEMWB(
     
     always @(posedge clk) begin
         if (reset == 1'b1) begin
+            instruction_W <= 32'b0;
             ALUResult_W <= 32'b0;
             r_Data_W <= 32'b0;
             PC_plus4_W <= 32'b0;
@@ -35,6 +38,7 @@ module MEMWB(
             resultSrc_W <= 2'b0;
         end
         else begin
+            instruction_W <= instruction_M;
             ALUResult_W <= ALUResult_M;
             r_Data_W <= r_Data_M;
             PC_plus4_W <= PC_plus4_M;

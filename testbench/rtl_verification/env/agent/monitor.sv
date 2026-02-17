@@ -37,8 +37,8 @@ class monitor extends uvm_monitor;
         forever begin
             begin
                 
-                //`uvm_info("DEBUG", $sformatf("monitor_regwrite=%b, monitor_rd=%d, monitor_result=0x%h", 
-                //    vif.monitor_cb.monitor_regwrite, vif.monitor_cb.monitor_rd, vif.monitor_cb.monitor_result), UVM_MEDIUM)
+                //`uvm_info("DEBUG", $sformatf("monitor_regwrite=%b, monitor_rd=%d, monitor_instr=0x%h, monitor_result=0x%h",
+                //    vif.monitor_cb.monitor_regwrite, vif.monitor_cb.monitor_rd, vif.monitor_cb.monitor_instr, vif.monitor_cb.monitor_result), UVM_LOW)
 
                 // Monitor register file writes
                 if (vif.monitor_cb.monitor_regwrite && vif.monitor_cb.monitor_rd != 0) begin
