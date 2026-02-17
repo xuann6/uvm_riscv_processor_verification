@@ -20,6 +20,7 @@ class driver extends uvm_driver #(transaction);
     task run_phase(uvm_phase phase);
         transaction tx;
 
+        // Wait for reset to deassert (replaces reset_phase for Verilator compatibility)
         @(negedge vif.reset);
         vif.driver_cb.instr_mode <= 1; // for UVM testing,
                                        // DUT will read instructions from UVM interface directly
@@ -30,7 +31,7 @@ class driver extends uvm_driver #(transaction);
             seq_item_port.item_done();
         end
     endtask
-    
+
     task drive_instruction(transaction tx);
 
         vif.driver_cb.instr_ext <= tx.instruction;
@@ -39,8 +40,5 @@ class driver extends uvm_driver #(transaction);
         @(vif.driver_cb); // wait for one cycle
     endtask
     
-    // Note: reset_phase removed - Verilator with UVM_NO_DPI does not support
-    // UVM runtime sub-phases. Reset wait is handled in run_phase above.
-
 endclass
 `endif

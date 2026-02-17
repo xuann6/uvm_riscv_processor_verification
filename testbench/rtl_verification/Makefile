@@ -45,7 +45,7 @@ VFLAGS += -Wno-INITIALDLY
 VFLAGS += -Wno-MULTIDRIVEN
 
 # Source files: UVM package first, then processor top, then testbench
-SRC = $(UVM_HOME)/uvm_pkg.sv $(PROC_DIR)/top.sv $(TB_FILE)
+SRC = $(UVM_HOME)/uvm_pkg.sv $(PROC_DIR)/top.sv $(TB_FILE)	
 
 # Output directory and binary
 OBJ_DIR = obj_dir

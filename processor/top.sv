@@ -190,10 +190,11 @@ module RISCVPipelined(
     
     // ===== ID/EX Pipeline Register =====
     IDEX id_ex(
-        .clk(clk), 
+        .clk(clk),
         .reset(reset),
         .PC_D(PC_D),
         .PC_plus4_D(PC_plus4_D),
+        .instruction_D(instruction_D),
         .r_data1(r_data1_D),
         .r_data2(r_data2_D),
         .immExt_D(immExt_D),
@@ -209,7 +210,6 @@ module RISCVPipelined(
         .jump_D(jump_D),
         .ALUControl_D(ALUControl_D),
         .ALUSrc_D(ALUSrc_D),
-        .instruction_D(instruction_D),
         .flush(flush_E),
         .instruction_E(instruction_E),
         .PC_E(PC_E),
@@ -283,7 +283,7 @@ module RISCVPipelined(
     
     // ===== EX/MEM Pipeline Register =====
     EXMEM ex_mem(
-        .clk(clk), 
+        .clk(clk),
         .reset(reset),
         .instruction_E(instruction_E),
         .ALUResult_E(ALUResult_E),
@@ -293,10 +293,10 @@ module RISCVPipelined(
         .regWrite_E(regWrite_E),
         .resultSrc_E(resultSrc_E),
         .memWrite_E(memWrite_E),
-        .instruction_M(instruction_M),
         .ALUResult_M(ALUResult_M),
         .writeData_M(writeData_M),
         .PC_plus4_M(PC_plus4_M),
+        .instruction_M(instruction_M),
         .rd_M(rd_M),
         .regWrite_M(regWrite_M),
         .resultSrc_M(resultSrc_M),
@@ -316,19 +316,19 @@ module RISCVPipelined(
     
     // ===== MEM/WB Pipeline Register =====
     MEMWB mem_wb(
-        .clk(clk), 
+        .clk(clk),
         .reset(reset),
-        .instruction_M(instruction_M),
         .ALUResult_M(ALUResult_M),
         .r_Data_M(readData_M),
         .PC_plus4_M(PC_plus4_M),
+        .instruction_M(instruction_M),
         .rd_M(rd_M),
         .regWrite_M(regWrite_M),
         .resultSrc_M(resultSrc_M),
-        .instruction_W(instruction_W),
         .ALUResult_W(ALUResult_W),
         .r_Data_W(readData_W),
         .PC_plus4_W(PC_plus4_W),
+        .instruction_W(instruction_W),
         .rd_W(rd_W),
         .regWrite_W(regWrite_W),
         .resultSrc_W(resultSrc_W)

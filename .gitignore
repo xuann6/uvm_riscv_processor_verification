@@ -9,3 +9,8 @@ obj_dir/
 
 # IDE
 .claude/
+
+# Files
+testbench/rtl_verification/LibTop/
+testbench/rtl_verification/modelsim.ini
+testbench/rtl_verification/run.do

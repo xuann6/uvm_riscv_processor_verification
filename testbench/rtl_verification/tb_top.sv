@@ -41,9 +41,11 @@ module tb;
         .instr_ext(intf.instr_ext)
     );
     
-    // Monitor signals from WB stage (instruction_W matches result_W)
-    assign intf.monitor_pc = dut.PC_plus4_W - 32'd4;
-    assign intf.monitor_instr = dut.instruction_W;
+    // Todo: 
+    //  1. What exactly signal are we trying to get from the DUT for monitor
+    //  2. What exactly signal are we passing into the DUT (basically just clk and rst)
+    assign intf.monitor_pc = dut.PC_plus4_W - 32'd4; // PC of the instruction in WB stage
+    assign intf.monitor_instr = dut.instruction_W;   // instruction in WB stage (matches result)
     assign intf.monitor_result = dut.result_W;
     assign intf.monitor_regwrite = dut.regWrite_W;
     assign intf.monitor_rd = dut.rd_W;
