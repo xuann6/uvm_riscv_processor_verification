@@ -13,6 +13,7 @@ import uvm_pkg::*;
 `include "env/scoreboard.sv"
 `include "env/env.sv"
 `include "test/test.sv"
+`include "assertions/riscv_assertions.sv"
 
 module tb;
     bit clk;
@@ -50,7 +51,21 @@ module tb;
     assign intf.monitor_regwrite = dut.regWrite_W;
     assign intf.monitor_rd = dut.rd_W;
     assign intf.dmem_write = dut.memWrite_M;
-    
+
+    // SVA - SystemVerilog Assertions
+    riscv_assertions sva_checker(
+        .clk(clk),
+        .reset(reset),
+        .PC_F(dut.PC_F),
+        .instruction_F(dut.instruction_F),
+        .result_W(dut.result_W),
+        .rd_W(dut.rd_W),
+        .regWrite_W(dut.regWrite_W),
+        .stall(dut.stall_F),
+        .flush(dut.flush_D),
+        .instr_mode(intf.instr_mode)
+    );
+
     initial begin
         // Register interface with UVM config database
         uvm_config_db#(virtual riscv_if)::set(null, "*", "vif", intf);
