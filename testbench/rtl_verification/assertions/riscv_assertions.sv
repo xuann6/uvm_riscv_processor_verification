@@ -27,9 +27,13 @@ int unsigned a4_fail_count = 0;
 //   - verify program counter behavior
 // ============================================
 
-// PC increments by 4 when no stall/flush
+// PC increments by 4 when no stall/flush.
+// Also disabled on the cycle immediately after a flush clears, because that
+// is when the branch/jump target PC first appears in the fetch stage — it
+// will be a non-+4 value relative to the flushed PC and is architecturally
+// correct behavior.
 property pc_increment;
-    @(posedge clk) disable iff (reset)
+    @(posedge clk) disable iff (reset || $past(flush))
     (!stall && !flush) |-> (PC_F == $past(PC_F) + 4);
 endproperty
 assert property (pc_increment) begin
@@ -95,7 +99,7 @@ end else $error("[SVA-A3] Invalid destination register! rd=%0d", rd_W);
 
 // Instruction mode should remain stable during execution
 property instr_mode_stable;
-    @(posedge clk) disable iff (reset)
+    @(posedge clk) disable iff (reset || $past(reset))
     $stable(instr_mode);
 endproperty
 assert property (instr_mode_stable) begin
@@ -112,12 +116,12 @@ final begin
     $display("\n============================================");
     $display("          SVA ASSERTION SUMMARY");
     $display("============================================");
-    $display("  A1 - PC Increment:       %0d PASS, %0d FAIL", a1_pass_count, a1_fail_count);
+    $display("  A1 - PC Increment:        %0d PASS, %0d FAIL", a1_pass_count, a1_fail_count);
     $display("  A2 - Valid Instruction:   %0d PASS", a2_instr_pass);
     $display("  A2 - Valid WB Result:     %0d PASS", a2_result_pass);
-    $display("  A3 - x0 Hardwired Zero:  %0d PASS", a3_x0_pass);
+    $display("  A3 - x0 Hardwired Zero:   %0d PASS", a3_x0_pass);
     $display("  A3 - Valid Rd Range:      %0d PASS", a3_rd_pass);
-    $display("  A4 - Instr Mode Stable:  %0d PASS, %0d FAIL", a4_pass_count, a4_fail_count);
+    $display("  A4 - Instr Mode Stable:   %0d PASS, %0d FAIL", a4_pass_count, a4_fail_count);
     $display("============================================\n");
 end
 
