@@ -1,51 +1,34 @@
 # RISC-V Processor Implementation and Verification
 
-This project is trying to do a functional verification for RISC-V 5-staged pipelined processor. The goal of this project is to cover the usage of UVM, including driver, monitor, scoreboard, etc. 
+This project is about the verification for RISC-V 5-staged pipelined processor. I built-up a complete UVM testbench with SystemVerilog assertion & functional coverage for verification.
 
-In the following I documented most of the issues and questions I had when doing this project. Hope this helps for someone who is also trying to learn verification basics. If you feel this project is helpful, please click the star botton. That will be much apprectiated!
+In the following I documented most of the issues and questions I had when doing this project. Hope this helps for someone who is also trying to learn verification basics. If you feel this project is helpful, please click the star botton. That means a lot to me:)
 
+## File Structure
 
-## Progress
-### Completed
-1. Completed `rtl_sim/unitTest`. Under `testbench/rtl_sim/unitTest`, please run: 
-    
-    ```bash=
-    bash run_unitTest.tcsh -c
-    ``` 
-
-### Todos
-1. `rtl_sim/bubbleSortTest` needs debugging
-
-## References
-- [chipverify.com](https://www.chipverify.com/)
-- [SystemVerilog - Event Scheduling Algorithm](https://verificationguide.com/systemverilog/systemverilog-scheduling-semantics/)
-
-## Processor Implementation
-> TBD
-
-## Processor Verification (UVM)
-
-### Overall UVM Structure
-
-<img src="fig/uvm.png" alt="Alt text" width="500"/>
-
-### File Structure
 ```
-rtl_verification/
+rtl_sim/
+    |--- unitTest/
+    |--- bubbleSortTest/
     |
+rtl_verification/
+    |--- Makefile
     |--- env/
-    |     |
     |     |--- agent/
-    |     |     |
     |     |     |--- agent.sv
     |     |     |--- driver.sv
     |     |     |--- monitor.sv
     |     |     |--- sequence.sv
     |     |     |--- sequencer.sv
     |     |     |--- transaction.sv
-    |     |
     |     |--- env.sv
     |     |--- scoreboard.sv
+    |
+    |--- assertions/
+    |     |--- riscv_assertions.sv
+    |
+    |--- coverage_collectors/
+    |     |--- coverage_collector.sv
     |
     |--- tb/
     |     |--- interface.sv
@@ -56,7 +39,149 @@ rtl_verification/
     |--- tb_top.sv
 ```
 
-### UVM Verification
+## Getting Started
+
+### Prerequisites
+- [Verilator](https://verilator.org/guide/latest/install.html) 5.x with `--timing` support
+- `make`, `curl`, `tar`
+
+### 1. Download UVM sources (run once)
+```bash
+cd testbench/rtl_verification
+make setup
+```
+
+This downloads the Accellera UVM 1800.2-2017-1.0 library into `1800.2-2017-1.0/`.
+
+### 2. Build and run
+```bash
+# Full rebuild + run all instruction types
+make rebuild TEST=riscv_full_test
+
+# Run single instruction type 
+# (riscv_i_type_test, 
+#  riscv_load_store_test, 
+#  riscv_b_type_test, 
+#  riscv_j_type_test, 
+#  riscv_u_type_test, 
+#  riscv_full_test)
+make run TEST=riscv_r_type_test
+```
+
+### Available tests
+| Test name | Instructions exercised |
+|-----------|------------------------|
+| `riscv_base_test` | NOP only (sanity check) |
+| `riscv_r_type_test` | ADD SUB AND OR XOR SLT SLTU SLL SRL SRA |
+| `riscv_i_type_test` | ADDI ANDI ORI XORI SLTI SLTIU SLLI SRLI SRAI |
+| `riscv_load_store_test` | SW SH SB LW LB LH LBU LHU |
+| `riscv_b_type_test` | BEQ BNE BLT BGE BLTU BGEU |
+| `riscv_j_type_test` | JAL JALR |
+| `riscv_u_type_test` | LUI AUIPC |
+| `riscv_full_test` | All of the above — achieves 100% coverage |
+
+### Makefile targets
+| Target | Description |
+|--------|-------------|
+| `make setup` | Download UVM 2017-1.0 sources (run once) |
+| `make build` | Compile with Verilator (incremental) |
+| `make run TEST=<name>` | Build if needed and run a named test |
+| `make rebuild TEST=<name>` | Clean, recompile, then run |
+| `make clean` | Remove `obj_dir/` build artifacts |
+| `make help` | Print usage summary |
+
+## Test Plan
+### RTL Simulation
+
+Before the UVM environment was built, unit-level RTL simulation was used to verify individual instructions and their functional correctness. Under `testbench/rtl_sim/unitTest/tb_unittest.sv`, a set of directed test cases validates different instuctions. The bubble sort test under `rtl_sim/bubbleSortTest` exercises the full processor end-to-end with real sorting algorithm.
+
+### UVM Simulation
+
+The UVM environment targets the full 5-stage pipelined processor as the DUT. Stimulus is organized into **file-based sequences**: each test reads 32-bit binary instruction encodings from a `.txt` file under `testbench/stimulus/`, wraps them into `transaction` objects, and sends them through the sequencer → driver → DUT path.
+
+The monitor observes DUT outputs from Fetch and WB stages:
+- **WB stage** — captures register write results and check it in scoreboard
+- **Fetch stage** — captures every instructions enter and feed to coverage collector for functional coverage
+
+I inject 5 NOPs instructions before and after each test sequence. This ensures the monitor sees all writeback results.
+
+#### SystemVerilog Assertion
+
+Currently four assertion groups are implemented (in `assertions/riscv_assertions.sv`), more details can be found in [assertion_plan.md](docs/verification/assertion_plan/assertion_plan.md).
+
+| ID | Assertion | What it checks |
+|----|-----------|----------------|
+| A1 | `pc_increment` | PC turns into PC+4 every cycle besides `stall` and `flush`. |
+| A2 | `valid_instruction` | Instruction sent to DUT never contains X/Z values (Verilator is 2-state simulator so this always pass). |
+| A2 | `no_x_in_result` | Writeback result never contains X/Z when `regWrite_W` is asserted. |
+| A3 | `x0_hardwired_zero` | Register x0 is always 0. |
+| A3 | `valid_rd_on_regwrite` | Destination register is always in range [0:31]. |
+| A4 | `instr_mode_stable` | `instr_mode` stays constant during execution (`instr_mode`==1 for UVM to drive stimulus). |
+
+**Result from `riscv_full_test`:**
+
+```
+============================================
+          SVA ASSERTION SUMMARY
+============================================
+  A1 - PC Increment:        155 PASS, 0 FAIL
+  A2 - Valid Instruction:   155 PASS
+  A2 - Valid WB Result:     155 PASS
+  A3 - x0 Hardwired Zero:   155 PASS
+  A3 - Valid Rd Range:      155 PASS
+  A4 - Instr Mode Stable:   155 PASS, 0 FAIL
+============================================
+```
+
+SVA assertions are evaluated every clock cycle during the simulation. The pass count shows the number of cycles checked and is not meaningful on its own. Instead, what matters is **zero failures across all assertions**.
+
+#### Functional Coverage
+
+Functional coverage tracks which instructions and instruction types were actually exercised during simulation. In a commercial simulator (Questa, VCS, Xcelium), this is done with `covergroup` / `coverpoint` / `bins` syntax. However, in this project I use **Verilator**, which does not support covergroups ([GitHub issue #784](https://github.com/verilator/verilator/issues/784)). The reason is Verilator is an open-source project which I think is more accessible for peopole without commercial simulator access.
+
+Instead of covergroups, each tracked item (opcode, instruction type) gets one entry in an integer array. An entry is set to 1 the first time that item is hit, and stays 0 if never seen. This works in the same way as `covergroup` & `coverpoint`, and the only drawback is lacks of support of plotting and tabling the statics, which I think is not that important in this project.
+
+```systemverilog
+// Standard SV covergroup (NOT supported in Verilator):
+covergroup instr_cg;
+    cp_type:   coverpoint tx.instr_type;
+    cp_opcode: coverpoint tx.instr_name { bins all_ops[] = {...}; }
+endgroup
+
+// What this project uses instead:
+int type_hit   [NUM_INSTR_TYPES];  // one entry per type
+int opcode_hit [NUM_OPCODES];      // one entry per opcode (37 in total for now)
+```
+
+**Result from `riscv_full_test`:**
+
+```
+============================================
+      FUNCTIONAL COVERAGE REPORT
+============================================
+  Instr Type Coverage: 6 / 6  (100.0%)
+    [HIT ] R_TYPE
+    [HIT ] I_TYPE
+    [HIT ] S_TYPE
+    [HIT ] B_TYPE
+    [HIT ] U_TYPE
+    [HIT ] J_TYPE
+  ------------------------------------------
+  Opcode Coverage:     37 / 37  (100.0%)
+    R_TYPE: [HIT ] ADD    [HIT ] SUB    [HIT ] AND    [HIT ] OR     [HIT ] XOR
+            [HIT ] SLL    [HIT ] SRL    [HIT ] SRA    [HIT ] SLT    [HIT ] SLTU
+    I_TYPE: [HIT ] ADDI   [HIT ] ANDI   [HIT ] ORI    [HIT ] XORI   [HIT ] SLTI
+            [HIT ] SLTIU  [HIT ] SLLI   [HIT ] SRLI   [HIT ] SRAI
+            [HIT ] LW     [HIT ] LB     [HIT ] LH     [HIT ] LBU    [HIT ] LHU
+    S_TYPE: [HIT ] SW     [HIT ] SH     [HIT ] SB
+    B_TYPE: [HIT ] BEQ    [HIT ] BNE    [HIT ] BLT    [HIT ] BGE    [HIT ] BLTU   [HIT ] BGEU
+    U_TYPE: [HIT ] LUI    [HIT ] AUIPC
+    J_TYPE: [HIT ] JAL    [HIT ] JALR
+============================================
+```
+
+## UVM Design Detail
+
 - **Components:**
   - [Environment](docs/verification/components/environment.md)
   - [Testbench_top](docs/verification/components/testbench_top.md)
@@ -70,111 +195,43 @@ rtl_verification/
 #### Testbench Top
 > file: `tb_top.sv`
 
-`tb_top.sv` works as top level module to call both DUT (Design Under Testing) and our UVM test. ASssuming we are doing the RTL simluation, we need `top.sv`, which is our design, and the `testbench.sv`, which provides the testing signal. Same idea here but we use UVM test to replace the `testbench.sv` in RTL simulation.
+`tb_top.sv` is the top module, every module is included and I connect the DUT, interface, and UVM testbench here. The connection bewteen DUT and UVM testbench:
 
-`tb_top.sv` plays as the top module for our simulation, every module will be included in this root module, DUT and the interface for UVM testing will be connected, and the input siganl will be setup here (not necessary but for simplicity I am doing this in this project). For instance, we need to setup the `clk` and `rst` signal here since these are the input for our processor.  
+```systemverilog
+// WB-stage signals (for scoreboard)
+assign intf.monitor_pc       = dut.PC_plus4_W - 32'd4;
+assign intf.monitor_instr    = dut.instruction_W;
+assign intf.monitor_result   = dut.result_W;
+assign intf.monitor_regwrite = dut.regWrite_W;
+assign intf.monitor_rd       = dut.rd_W;
 
-In gerneral, most of the setups in `tb_top.sv` are very much alike with setup in RTL simulation testbench. Setting up the clk and rst signals, sending them into DUT and UVM environment, and dumping the waveform file. One thing noticeable is this section: 
-```Verilog=
-initial begin
-    uvm_config_db#(virtual if)::set(null, "*", "vif", intf);
-    run_test();
-end
+// Fetch-stage signals (for coverage collector)
+assign intf.fetch_pc    = dut.PC_F;
+assign intf.fetch_instr = dut.instruction_F;
+assign intf.fetch_stall = dut.stall_F;
+assign intf.fetch_flush = dut.flush_D;
 ```
-`uvm_config_db` is a built-in function for UVM which provides a global configurable database across all the verifcation components. The detailed explanation is as below: 
-- `#(virtual if)` - storing a virtual interface into this global database
-- `set(null, "*", "vif", intf);` - set the config for this component
-    - `null` - means this component can be accessed by any component
-    - `"*"` - means this config can be applied to all components in the hierachy
-    - `"vif"` - represents the name (key) for this component
-    - `intf` - represents the interface will be retrieved and used by other components
-
-`run_test()` calls our the base_test for testing. To specify which test are we running, we can use `run_test(base_test)` to run the `base_test` class in `test.sv` file. The other option is to add `+UVM_TESTNAME=base_test` when running the simulation in command line.
 
 #### Test
-> path: `test/test.sv`
+> file: `test/test.sv`
 
-We are allowed to run different test cases. `test.sv` starts from `riscv_base_test`, which only provides basic `build_phase` and `run_phase`. We then inherited the `riscv_base_test` and created `riscv_{RISC-V Inst Type}_type_test`, including 'r' for R-type, 'i' for I-type, and 'load_store' for LOAD and STORE instruction. 
+Including different test cases. `test.sv` starts from `riscv_base_test`, which only provides basic `build_phase` and `run_phase`. We then inherited the `riscv_base_test` and created `riscv_{RISC-V Inst Type}_type_test` for different instruction type test, and `riscv_full_test` runs all types sequentially.
 
-`riscv_{RISC-V Inst Type}_type_test` will create each type of the following sequence in `sequence.sv`, where we actually create the transaction for sending to DUT. 
+`riscv_{RISC-V Inst Type}_type_test` will create each type of the following sequence in `sequence.sv`, where we actually create the transaction for sending to DUT.
 
-In the `riscv_base_test` class, we are reusing the virtual interface that we created in `tb_top.sv`. After getting and checking it, we then pass it down to the env where our monitor and driver use it to connect with DUT. 
-
-> **Why and where we need virtual interface?**
-> For the components that are directly interacting with DUT, we need virtual interface. The reason is because in SystemVerilog, there are two separate worlds: static module world and dynamic class world. Static module world includes DUT, interfaces, and all the other physical connections. On the other hand, dynamic class world includes all UVM objects. The keyword "virtual" provides the class objects the ability to access the static module items. So for virtual interface, we are basically providing our env, monitor, and driver the ability to communicate with DUT.
-
-> **Why we need `phase_raise_object(this)` and `phase_drop_object(this)`?**
-> The raise and drop is generally a flag that tells UVM if we are still doing something in this phase. UVM process will not enter the next phase unless all the components in the current phase have called `phase_drop_object(this)`. Addtionally, these statements can be added to all the phases, but it's often not necessary to do so beside run_phase, since run_phase is the phase that actually executes the stimulus, and the duration of this phase is often not predetermined.
+In the base class, I reuse the virtual interface that is created in `tb_top.sv`. After getting and checking it, I pass it down to the env where our monitor and driver use it to connect with DUT.
 
 #### Environment
 > path: `env/env.sv`
+
 UVM environment is the place that you put all of your reusable UVM components and define their default configuration by different applications. Inside the environment, you can have different numbers of interfaces, scoreboards, functional coverage collectors, etc, depending on the test cases you need. You can also have another environment inside it to provide a finer granularity testing. For instance, from sub-system level to block level.
 
-From the code, you can see we have one driver, monitor, sequencer, and scoreboard in our environment. In `build_phase`, we create all the components and make sure the virtual interface is set to both driver and monitor correctly. In `connect_phase`, we connect the driver to sequencer and monitor to scoreboard. In `reset_phase`, we initialize the reg_file and memory to the default value.
+From the code, you can see we have one driver, monitor, sequencer, scoreboard, and coverage collector in our environment. In `build_phase`, we create all the components and make sure the virtual interface is set to both driver and monitor correctly. In `connect_phase`, we connect the driver to sequencer, the monitor WB-port to scoreboard, and the monitor fetch-port to coverage collector.
 
-> **Why `reset_phase` is using task and all the other phases are using function?**
-> In UVM, we can choose our phases either using task or function based on the specific usage of component. As our understanding in SystemVerilog, function happens immediately and we have no timing control in it. For task, it consumes simulation time and that's why we need to add the raise/drop objects to make sure the UVM won't enter the next phase til this `reset_phase` finishes.
+## References
 
-> **What's the `UVM_LOW` at the end of `uvm_info`?**
-> Represent the verbosity level of this print message is LOW. The console will print the verbosity level which is less than the system configuration. Default verbosity is MEDIUM, so the message will be printed. For more information, you can check [Report Functions](https://www.chipverify.com/uvm/report-functions)
-
-#### Driver
-> file: `env/agent/driver.sv`
-
-Driver will 'drive' the the transaction to the design through virtual interface, and the transaction level object will be obtained from the `sequencer`, which we will talk about next.
-
-The main focus for the driver will be in the `run_phase`. In the `run_phase`, the complete process to pass the transaction will be: get the next transaction from sequencer, send the transaction to DUT, and end the current transaction. There are 3 methods for a driver to interact with a sequencer:
-1. `get_next_item()` - block until the next item is available from sequencer, should follow by `item_done()`
-2. `try_next_item()` - non-blocking method, which will return null if the request transaction object if not available from sequencer. Else will return a pointer to the object
-3. `item_done()` - be called after `get_next_item` or the successful `try_next_item`
-
-There are two ways to complete the handshake between `dirver` and `sequencer`:
-1. `get_next_item` followed by `item_done` - `finish_item` call in sequence finishes after `item_done` call (`finish_item` will be mentioned in the following chapter)
-2. `get` followed by `put` - `finish_item` call in sequence finishes right after `put` call
-
-> **Is it necessary to use non-blocking assignment with `get_next_item`/`item_done` handshake?**
-> No, it is not necessary, the usage of the handshake protocol is not related to the blocking/non-blocking assignment. So does the blocking/non-blocking usage in `get`/`put` protocol.
-
-> **Why don't we need to declare `seq_item_port` in driver?**
-> The `seq_item_port` is already declared in the uvm_driver base class so we don't have to declare it again.
-
-#### Transaction
-> file: `env/agent/transaction.sv`
-
-- **Purpose**: 
-    
-    The transaction class creates some standardized data structure that flows between verification components.
-
-    In verification of our processor, our transaction represents a RISC-V instruction (RV32I ISA) along with its expected behavior (including memory addr/data, output reg/data).
-
-- **Key Components**:
-  
-  - instruction
-  - PC
-  - expected results (both reg and data)
-  - flags inside the processor (reg_write, mem_write, etc)
-  - helper function
-
-- **Implementation Details**:
-
-    - `decode_instruction()` - breaks down 32-bit instruction
-    - `convert2string()` - provides transaction information for debugging
-
-#### Interface
-> file: `tb/interface.sv`
-
-- **Purpose**: 
-
-    The interface acts as the bridge between the DUT and our verification env, allowing the testbench to reuse the interface for multiple testcases. The interface defines the contract between the hardware design and the software verification components. Thus, all signals used for our verification stages or passed into the DUT should be declared in this file. 
-    
-    The interface ensures proper synchronization through clocking blocks and provides separate access points for drivers and monitors. This maintains a clean verification environment.
-
-- **Key Components**:
-- **Implementation Details**:
-
-
-
-
-
-
-
+- [chipverify.com](https://www.chipverify.com/)
+- [SystemVerilog - Event Scheduling Algorithm](https://verificationguide.com/systemverilog/systemverilog-scheduling-semantics/)
+- [Accellera UVM 1800.2-2017-1.0](https://www.accellera.org/downloads/standards/uvm)
+- [Verilator Documentation](https://verilator.org/guide/latest/)
+- [RISC-V ISA Specification](https://riscv.org/technical/specifications/)
