@@ -144,10 +144,12 @@ class load_store_file_seq extends file_based_seq;
     endfunction
 endclass
 
-// Short-name aliases used by test classes
 typedef nop_file_seq        nop_seq;
 typedef r_type_file_seq     r_type_seq;
 typedef i_type_file_seq     i_type_seq;
+typedef b_type_file_seq     b_type_seq;
+typedef j_type_file_seq     j_type_seq;
+typedef u_type_file_seq     u_type_seq;
 typedef load_store_file_seq load_store_seq;
 
 `endif

@@ -4,10 +4,11 @@
 class riscv_env extends uvm_env;
     `uvm_component_utils(riscv_env)
     
-    driver       drv;
-    sequencer    sqr;
-    monitor      mon;
-    scoreboard   scb;
+    driver               drv;
+    sequencer            sqr;
+    monitor              mon;
+    scoreboard           scb;
+    coverage_collector   cov;
     
     virtual riscv_if vif;
     
@@ -28,6 +29,7 @@ class riscv_env extends uvm_env;
         sqr = sequencer::type_id::create("sqr", this);
         mon = monitor::type_id::create("mon", this);
         scb = scoreboard::type_id::create("scb", this);
+        cov = coverage_collector::type_id::create("cov", this);
         
         // Set interface for driver and monitor
         uvm_config_db#(virtual riscv_if)::set(this, "drv", "vif", vif);
@@ -40,8 +42,11 @@ class riscv_env extends uvm_env;
         // Connect driver to sequencer
         drv.seq_item_port.connect(sqr.seq_item_export);
 
-        // Connect monitor to scoreboard
+        // Connect monitor WB-port to scoreboard
         mon.analysis_port.connect(scb.analysis_imp);
+
+        // Connect monitor to coverage collector)
+        mon.instr_analysis_port.connect(cov.analysis_export);
     endfunction
     
     // Initialize scoreboard models at start of run_phase

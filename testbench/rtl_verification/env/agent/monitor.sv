@@ -6,11 +6,13 @@ class monitor extends uvm_monitor;
 
     virtual riscv_if vif;
 
-    uvm_analysis_port #(transaction) analysis_port;
+    uvm_analysis_port #(transaction) analysis_port;       // WB-stage  → scoreboard
+    uvm_analysis_port #(transaction) instr_analysis_port; // fetch-stage → coverage
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
-        analysis_port = new("analysis_port", this);
+        analysis_port       = new("analysis_port", this);
+        instr_analysis_port = new("instr_analysis_port", this);
     endfunction
 
     // Build phase - get interface from config db
@@ -27,12 +29,25 @@ class monitor extends uvm_monitor;
         @(negedge vif.reset);
 
         forever begin
-            // Check WB stage for register writes
+            // WB-stage: fires only when a real register write completes.
+            // Feeds the scoreboard for result checking.
             if (vif.monitor_cb.monitor_regwrite && vif.monitor_cb.monitor_rd != 0) begin
                 tx = create_result_transaction();
 
                 `uvm_info("MONITOR", $sformatf("\033[1;34m Starting a new transaction...\033[0m"), UVM_LOW)
                 analysis_port.write(tx);
+            end
+
+            // fires for every real instruction entering the pipeline in fetch stage
+            if (!vif.monitor_cb.fetch_stall &&
+                !vif.monitor_cb.fetch_flush &&
+                 vif.monitor_cb.fetch_instr != 32'h00000013) begin
+                transaction fetch_tx;
+                fetch_tx             = transaction::type_id::create("fetch_tx");
+                fetch_tx.pc          = vif.monitor_cb.fetch_pc;
+                fetch_tx.instruction = vif.monitor_cb.fetch_instr;
+                fetch_tx.decode_instruction();
+                instr_analysis_port.write(fetch_tx);
             end
 
             // Monitor memory operations

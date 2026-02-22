@@ -11,9 +11,10 @@ import uvm_pkg::*;
 `include "env/agent/driver.sv"
 `include "env/agent/monitor.sv"
 `include "env/scoreboard.sv"
+`include "coverage_collectors/coverage_collector.sv"
+`include "assertions/riscv_assertions.sv"
 `include "env/env.sv"
 `include "test/test.sv"
-`include "assertions/riscv_assertions.sv"
 
 module tb;
     bit clk;
@@ -45,12 +46,19 @@ module tb;
     // Todo: 
     //  1. What exactly signal are we trying to get from the DUT for monitor
     //  2. What exactly signal are we passing into the DUT (basically just clk and rst)
+    // WB-stage signals (scoreboard)
     assign intf.monitor_pc = dut.PC_plus4_W - 32'd4; // PC of the instruction in WB stage
     assign intf.monitor_instr = dut.instruction_W;   // instruction in WB stage (matches result)
     assign intf.monitor_result = dut.result_W;
     assign intf.monitor_regwrite = dut.regWrite_W;
     assign intf.monitor_rd = dut.rd_W;
     assign intf.dmem_write = dut.memWrite_M;
+
+    // Fetch-stage signals for coverage collector
+    assign intf.fetch_pc    = dut.PC_F;
+    assign intf.fetch_instr = dut.instruction_F;
+    assign intf.fetch_stall = dut.stall_F;
+    assign intf.fetch_flush = dut.flush_D;
 
     // SVA - SystemVerilog Assertions
     riscv_assertions sva_checker(
