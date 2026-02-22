@@ -1,27 +1,69 @@
 # Branch Instructions Test
-# BEQ branch taken test
+
+# --- BEQ: branch taken (x23 == x24) ---
 # ADDI x23, x0, 5
 00000000010100000000101110010011
 # ADDI x24, x0, 5
 00000000010100000000110000010011
-# BEQ x23, x24, 12
+# BEQ x23, x24, 12  (taken: x23==x24)
 00000001100010111000001101100011
-# ADDI x25, x0, 10 (should not execute)
+# ADDI x25, x0, 10  (should not execute)
 00000000101000000000110010010011
-# ADDI x25, x0, 20 (should not execute)
+# ADDI x25, x0, 20  (should not execute)
 00000001010000000000110010010011
-# ADDI x25, x0, 30 (should execute after branch)
+# ADDI x25, x0, 30  (executes after branch)
 00000001111000000000110010010011
-# BNE branch taken test
+
+# --- BNE: branch taken (x23 != x24) ---
 # ADDI x23, x0, 5
 00000000010100000000101110010011
 # ADDI x24, x0, 10
 00000000101000000000110000010011
-# BNE x23, x24, 12
+# BNE x23, x24, 12  (taken: x23!=x24)
 00000001100010111001001101100011
-# ADDI x26, x0, 10 (should not execute)
+# ADDI x26, x0, 10  (should not execute)
 00000000101000000000110100010011
-# ADDI x26, x0, 20 (should not execute)
+# ADDI x26, x0, 20  (should not execute)
 00000001010000000000110100010011
-# ADDI x26, x0, 40 (should execute after branch)
+# ADDI x26, x0, 40  (executes after branch)
 00000010100000000000110100010011
+
+# --- BLT: branch taken (x1=5 < x2=10) ---
+# BLT x1, x2, 12  (taken: 5 < 10 signed)
+00000000001000001100011001100011
+# ADDI x26, x0, 10  (should not execute)
+00000000101000000000110100010011
+# ADDI x26, x0, 20  (should not execute)
+00000001010000000000110100010011
+# ADDI x26, x0, 30  (executes after branch)
+00000001111000000000110100010011
+
+# --- BGE: branch taken (x2=10 >= x1=5) ---
+# BGE x2, x1, 12  (taken: 10 >= 5 signed)
+00000000000100010101011001100011
+# ADDI x26, x0, 10  (should not execute)
+00000000101000000000110100010011
+# ADDI x26, x0, 20  (should not execute)
+00000001010000000000110100010011
+# ADDI x26, x0, 30  (executes after branch)
+00000001111000000000110100010011
+
+# --- BLTU: branch taken (x1=5 <u x2=10) ---
+# BLTU x1, x2, 12  (taken: 5 <u 10)
+00000000001000001110011001100011
+# ADDI x26, x0, 10  (should not execute)
+00000000101000000000110100010011
+# ADDI x26, x0, 20  (should not execute)
+00000001010000000000110100010011
+# ADDI x26, x0, 30  (executes after branch)
+00000001111000000000110100010011
+
+# --- BGEU: branch taken (x2=10 >=u x1=5) ---
+# BGEU x2, x1, 12  (taken: 10 >=u 5)
+00000000000100010111011001100011
+# ADDI x26, x0, 10  (should not execute)
+00000000101000000000110100010011
+# ADDI x26, x0, 20  (should not execute)
+00000001010000000000110100010011
+# ADDI x26, x0, 30  (executes after branch)
+00000001111000000000110100010011

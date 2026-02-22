@@ -1,11 +1,26 @@
 # Load/Store Instructions Test
-# SW x2, 0(x0) (Store x2 to mem[0])
+
+# --- STORES ---
+# SW x2, 0(x0)  (store word x2=10 to mem[0])
 00000000001000000010000000100011
-# NOP (ADDI x0, x0, 0) - avoid hazard
+# SH x2, 2(x0)  (store halfword x2=10 to mem[2])
+00000000001000000001000100100011
+# SB x2, 4(x0)  (store byte x2=10 to mem[4])
+00000000001000000000001000100011
+
+# NOPs to flush store hazard before loads
 00000000000000000000000000010011
-# NOP
 00000000000000000000000000010011
-# NOP
 00000000000000000000000000010011
-# LW x22, 20(x0) (Load from mem[5] to x22)
+
+# --- LOADS ---
+# LW  x22, 20(x0)  (load word from pre-initialized mem[20] = 0xABCDEF01)
 00000001010000000010101100000011
+# LB  x22, 0(x0)   (load byte from mem[0], expect 0x0000000A)
+00000000000000000000101100000011
+# LH  x22, 0(x0)   (load halfword from mem[0], expect 0x0000000A)
+00000000000000000001101100000011
+# LBU x22, 0(x0)   (load byte unsigned from mem[0], expect 0x0000000A)
+00000000000000000100101100000011
+# LHU x22, 0(x0)   (load halfword unsigned from mem[0], expect 0x0000000A)
+00000000000000000101101100000011
