@@ -183,8 +183,6 @@ int opcode_hit [NUM_OPCODES];      // one entry per opcode (37 in total for now)
 ## UVM Design Detail
 
 - **Components:**
-  - [Environment](docs/verification/components/environment.md)
-  - [Testbench_top](docs/verification/components/testbench_top.md)
   - [Driver](docs/verification/components/driver.md)
   - [Monitor](docs/verification/components/monitor.md)
   - [Scoreboard](docs/verification/components/scoreboard.md)
