@@ -41,6 +41,10 @@ rtl_verification/
 
 ## Getting Started
 
+### UVM Testbench Structure
+![](fig/uvm.png?raw=true "Optional Title")
+
+
 ### Prerequisites
 - [Verilator](https://verilator.org/guide/latest/install.html) 5.x with `--timing` support
 - `make`, `curl`, `tar`
